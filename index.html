@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fancy Font Styles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      background: #f2f2f2;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 18px;
+      margin-bottom: 25px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .output-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .output-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .text-content {
+      flex-grow: 1;
+      margin-right: 10px;
+    }
+
+    .output-text {
+      font-size: 22px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .style-name {
+      font-size: 13px;
+      color: #777;
+    }
+
+    .copy-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .copy-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .output-box.bold .output-text { font-weight: bold; }
+    .output-box.italic .output-text { font-style: italic; }
+    .output-box.underline .output-text { text-decoration: underline; }
+
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      display: none;
+      z-index: 999;
+    }
+
+    @media (max-width: 600px) {
+      .output-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .copy-btn {
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter your text:</h2>
+  <input type="text" id="userInput" placeholder="Type something..." oninput="updateText()">
+
+  <div class="output-box">
+      <div class="text-content">
+        <span class="output-text" id="frakturOutput" data-default="𝔉𝔯𝔞𝔨𝔱𝔲𝔯">𝔉𝔯𝔞𝔨𝔱𝔲𝔯</span>
+        <span class="style-name">Fraktur</span>
+      </div>
+      <button class="copy-btn" onclick="copyToClipboard('frakturOutput')">Copy</button>
+  </div>
+
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="bubbleOutput" data-default="Ⓑⓤⓑⓑⓛⓔⓢ">Ⓑⓤⓑⓑⓛⓔⓢ</span>
+    <span class="style-name">Bubbles</span>
+  </div>
+  <button class="copy-btn" onclick="copyToClipboard('bubbleOutput')">Copy</button>
+</div>
+
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="etruscanOutput" data-default="𐌀𐌕𐌓𐌖𐌔𐌂𐌕𐌍">𐌀𐌕𐌓𐌖𐌔𐌂𐌕𐌍</span>
+    <span class="style-name">Etruscan</span>
+  </div>
+  <button class="copy-btn" onclick="copyToClipboard('etruscanOutput')">Copy</button>
+</div>
+
+  <div id="copyNotification" class="notification">Copied!</div>
+
+  <script>
+    let defaultInput = "hello"; // Change to "" to disable default
+
+  
+function tofraktur(text) {
+  const map = {
+    A: '𝔄', B: '𝔅', C: 'ℭ', D: '𝔇', E: '𝔈', F: '𝔉', G: '𝔊', H: 'ℌ', I: 'ℑ', J: '𝔍',
+    K: '𝔎', L: '𝔏', M: '𝔐', N: '𝔑', O: '𝔒', P: '𝔓', Q: '𝔔', R: 'ℜ', S: '𝔖', T: '𝔗',
+    U: '𝔘', V: '𝔙', W: '𝔚', X: '𝔛', Y: '𝔜', Z: 'ℨ',
+    a: '𝔞', b: '𝔟', c: '𝔠', d: '𝔡', e: '𝔢', f: '𝔣', g: '𝔤', h: '𝔥', i: '𝔦', j: '𝔧',
+    k: '𝔨', l: '𝔩', m: '𝔪', n: '𝔫', o: '𝔬', p: '𝔭', q: '𝔮', r: '𝔯', s: '𝔰', t: '𝔱',
+    u: '𝔲', v: '𝔳', w: '𝔴', x: '𝔵', y: '𝔶', z: '𝔷'
+  };
+  return [...text].map(c => map[c] || c).join('');
+}
+function tobubbles(text) {
+  const map = {
+    A: 'Ⓐ', B: 'Ⓑ', C: 'Ⓒ', D: 'Ⓓ', E: 'Ⓔ', F: 'Ⓕ', G: 'Ⓖ', H: 'Ⓗ', I: 'Ⓘ', J: 'Ⓙ',
+    K: 'Ⓚ', L: 'Ⓛ', M: 'Ⓜ', N: 'Ⓝ', O: 'Ⓞ', P: 'Ⓟ', Q: 'Ⓠ', R: 'Ⓡ', S: 'Ⓢ', T: 'Ⓣ',
+    U: 'Ⓤ', V: 'Ⓥ', W: 'Ⓦ', X: 'Ⓧ', Y: 'Ⓨ', Z: 'Ⓩ',
+    a: 'ⓐ', b: 'ⓑ', c: 'ⓒ', d: 'ⓓ', e: 'ⓔ', f: 'ⓕ', g: 'ⓖ', h: 'ⓗ', i: 'ⓘ', j: 'ⓙ',
+    k: 'ⓚ', l: 'ⓛ', m: 'ⓜ', n: 'ⓝ', o: 'ⓞ', p: 'ⓟ', q: 'ⓠ', r: 'ⓡ', s: 'ⓢ', t: 'ⓣ',
+    u: 'ⓤ', v: 'ⓥ', w: 'ⓦ', x: 'ⓧ', y: 'ⓨ', z: 'ⓩ',
+    0: '⓪', 1: '①', 2: '②', 3: '③', 4: '④', 5: '⑤', 6: '⑥', 7: '⑦', 8: '⑧', 9: '⑨'
+  };
+  return [...text].map(c => map[c] || c).join('');
+}
+
+   function toetruscan(text) {
+  const map = {
+    A: '𐌀', B: '𐌁', C: '𐌂', D: '𐌃', E: '𐌄', F: '𐌅', G: 'Ᏽ', H: '𐋅', I: '𐌉', J: 'Ꮭ',
+    K: '𐌊', L: '𐌋', M: '𐌌', N: '𐌍', O: 'Ꝋ', P: '𐌐', Q: '𐌒', R: '𐌓', S: '𐌔', T: '𐌕',
+    U: '𐌵', V: 'ᕓ', W: 'Ꮤ', X: '𐋄', Y: '𐌙', Z: 'Ɀ',
+    a: '𐌀', b: '𐌁', c: '𐌂', d: '𐌃', e: '𐌄', f: '𐌅', g: 'Ᏽ', h: '𐋅', i: '𐌉', j: 'Ꮭ',
+    k: '𐌊', l: '𐌋', m: '𐌌', n: '𐌍', o: 'Ꝋ', p: '𐌐', q: '𐌒', r: '𐌓', s: '𐌔', t: '𐌕',
+    u: '𐌵', v: 'ᕓ', w: 'Ꮤ', x: '𐋄', y: '𐌙', z: 'Ɀ'
+  };
+  return [...text].map(c => map[c] || c).join('');
+}
+
+
+    function updateText() {
+      const input = document.getElementById("userInput").value.trim();
+      const text = input || defaultInput;
+
+    	document.getElementById("frakturOutput").textContent = input ? tofraktur(text) : document.getElementById("frakturOutput").dataset.default;
+        document.getElementById("bubbleOutput").textContent = input ? tobubbles(text) : document.getElementById("bubbleOutput").dataset.default;
+        document.getElementById("etruscanOutput").textContent = input ? toetruscan(text) : document.getElementById("etruscanOutput").dataset.default;
+
+    }
+
+    function copyToClipboard(elementId) {
+      const text = document.getElementById(elementId).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        showCopyNotification(`Copied: ${text}`);
+      });
+    }
+
+    function showCopyNotification(message) {
+      const notification = document.getElementById("copyNotification");
+      notification.textContent = message;
+      notification.style.display = 'block';
+      setTimeout(() => {
+        notification.style.display = 'none';
+      }, 2000);
+    }
+
+    window.onload = () => {
+      if (defaultInput) {
+        document.getElementById("userInput").value = defaultInput;
+      }
+      updateText();
+    };
+  </script>
+
+</body>
+</html>
