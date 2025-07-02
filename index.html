@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+    <meta http-equiv='content-language' content='en' />
 
   <meta charset="UTF-8">
   <title>Fancy Font Styles</title>
@@ -521,16 +523,16 @@ body {
     }
 
     function toGothic(text) {
-      const map = {
-        A: '🇦', B: '🇧', C: '🇨', D: '🇩', E: '🇪', F: '🇫', G: '🇬', H: '🇭', I: '🇮', J: '🇯',
-    K: '🇰', L: '🇱', M: '🇲', N: '🇳', O: '🇴', P: '🇵', Q: '🇶', R: '🇷', S: '🇸', T: '🇹',
-    U: '🇺', V: '🇻', W: '🇼', X: '🇽', Y: '🇾', Z: '🇿',
-    a: '🇦', b: '🇧', c: '🇨', d: '🇩', e: '🇪', f: '🇫', g: '🇬', h: '🇭', i: '🇮', j: '🇯',
-    k: '🇰', l: '🇱', m: '🇲', n: '🇳', o: '🇴', p: '🇵', q: '🇶', r: '🇷', s: '🇸', t: '🇹',
-    u: '🇺', v: '🇻', w: '🇼', x: '🇽', y: '🇾', z: '🇿'
-      };
-      return [...text].map(c => map[c] || c).join('');
+     const base = 0x1F1E6; // Unicode for 🇦
+  return [...text].map(char => {
+    const code = char.toUpperCase().charCodeAt(0);
+    if (code >= 65 && code <= 90) { // A-Z
+      return String.fromCodePoint(base + (code - 65));
     }
+    return char;
+  }).join('');
+}
+
 
     function toRounded(text) {
       const map = {
