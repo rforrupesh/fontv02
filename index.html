@@ -23,10 +23,9 @@
             line-height: 1.6;
         }
 
-        /* Navigation Styles */
-        nav {
-            background: #333;
-            color: #fff;
+         nav {
+            background: #ffffff;
+            color: #070505;
             padding: 10px 20px;
             display: flex;
             justify-content: space-between;
@@ -39,11 +38,18 @@
             font-size: 1.5rem;
         }
 
+        .logo img {
+            height: 40px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+        }
+
         .menu-toggle {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: #fff;
+            color: #120808;
             z-index: 10001;
         }
 
@@ -52,13 +58,15 @@
             gap: 15px;
             align-items: center;
             margin-left: auto;
+            margin-right: 20px;
         }
 
         .menu a {
-            color: #fff;
+            color: #000000;
             text-decoration: none;
             padding: 8px 12px;
             display: inline-block;
+            margin: 0 10px;
         }
 
         .menu a:hover {
@@ -73,8 +81,9 @@
         .dropdown > a {
             padding: 8px 12px;
             display: inline-block;
-            color: #fff;
+            color: #000000;
             text-decoration: none;
+            margin: 0 10px;
         }
 
         .dropdown > a::after {
@@ -88,34 +97,30 @@
             position: absolute;
             top: 100%;
             right: 0;
-            background: #444;
+            background: #f0f0f0;
             min-width: 150px;
             z-index: 10002;
             border-radius: 4px;
             overflow: hidden;
             text-align: right;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .dropdown-content a {
             display: block;
             padding: 10px;
-            color: #fff;
+            color: #000000;
             white-space: nowrap;
             text-decoration: none;
-            background: #444;
+            background: #f0f0f0;
         }
 
         .dropdown-content a:hover {
-            background: #666;
+            background: #e0e0e0;
         }
 
         .dropdown:hover .dropdown-content {
             display: block;
-        }
-
-        /* Main content container */
-        .main-content {
-            padding: 30px;
         }
 
         .output-list h2 {
@@ -278,8 +283,7 @@
             opacity: 1;
         }
 
-        /* Mobile Navigation */
-        @media (max-width: 768px) {
+      @media (max-width: 768px) {
             .menu {
                 flex-direction: column;
                 background: #333;
@@ -326,7 +330,6 @@
                 width: 100%;
             }
         }
-
         /* Mobile responsive for content */
         @media (max-width: 600px) {
             .output-box {
@@ -352,7 +355,9 @@
 </head>
 <body>
 <nav>
-        <div class="logo">Logo</div>
+        <div class="logo">
+            <img src="https://fontgenerator.click/img/logo_header.png" alt="Logo">
+        </div>
         <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
         <div class="menu" id="menu">
             <a href="#">Home</a>
