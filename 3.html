@@ -281,11 +281,12 @@
     }
     .navbar .logo img {
       width: 100%;
-      max-width: 110px;
+      max-width: 210px;
       max-height: 60px;
       height: auto;
       object-fit: contain;
       display: block;
+      
     }
     .nav-overlay {
       display: none;
@@ -351,7 +352,7 @@
       background: #949393;
       margin-left: 0;
       margin-right: 0;
-      border-left: 3px solid #04AA6D;
+      border-left: 3px solid #0404aa;
     }
     .dropdown.open > .dropdown-content { display: block; }
     .dropdown-content a {
@@ -380,8 +381,8 @@
         box-shadow: none;
         display: flex;
         align-items: center;
-         background: #fff;
-      color: #000;
+        background: #fff;
+        color: #000;
       }
       .nav-menu ul {
         display: flex;
@@ -457,22 +458,21 @@
         </li>
         <li class="dropdown">
           <button type="button" class="dropdown-toggle">
-            Services
-            <!-- Caret Down SVG only -->
+            Font Styles
             <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="black" stroke-width="2">
               <polyline points="6 8 10 12 14 8"/>
             </svg>
           </button>
           <div class="dropdown-content">
-            <a href="#">Web Development</a>
-            <a href="#">App Development</a>
-            <a href="#">Design</a>
-            <a href="#">Cloud</a>
-            <a href="#">Database</a>
-            <a href="#">Security</a>
-            <a href="#">Extra Item 1</a>
-            <a href="#">Extra Item 2</a>
-            <a href="#">Extra Item 3</a>
+            <a href="#">All</a>
+            <a href="#">Strikethrough</a>
+            <a href="#">Invisible</a>
+            <a href="#">Cursive Text</a>
+            <a href="#">Cool</a>
+            <a href="#">Fancy</a>
+            <a href="#">Glitch</a>
+            <a href="#">Bold</a>
+            <a href="#">Text Art</a>
           </div>
         </li>
         <li class="dropdown">
@@ -484,14 +484,44 @@
             </svg>
           </button>
           <div class="dropdown-content">
-            <a href="#">Team</a>
-            <a href="#">History</a>
+            <a href="#">About Us</a>
+            <a href="#">Privacy</a>
+             <a href="#">Contact Us</a>
+            <a href="#">FAQ</a>
           </div>
         </li>
         <li>
           <a href="#">Contact</a>
         </li>
+ 
+          <li class="dropdown">
+          <button type="button" class="dropdown-toggle">
+            Language
+            <!-- Caret Down SVG only -->
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="black" stroke-width="2">
+              <polyline points="6 8 10 12 14 8"/>
+            </svg>
+          </button>
+          <div class="dropdown-content">
+                           <a  href="/" data-lang="en">English</a>
+                            <a  href="/es.html" data-lang="es">Español</a>
+                            <a  href="/ar.html" data-lang="ar">العربية</a>
+                            <a  href="/fr.html" data-lang="fr">Français</a>
+                            <a  href="/de.html" data-lang="de">Deutsch</a>
+                            <a  href="/pt.html" data-lang="pt">Português</a>
+                            <a  href="/id.html" data-lang="id">Indonesian</a>
+                            <a  href="/hi.html" data-lang="hi">हिन्दी </a>
+                            <a  href="/it.html" data-lang="it">Italiano</a>
+                            <a  href="/ja.html" data-lang="ja">日本語</a>
+                            <a  href="/ru.html" data-lang="ru">Россия</a>
+                            <a  href="/th.html" data-lang="th">ประเทศไทย</a>
+                            <a  href="/tr.html" data-lang="tr">Türkiye</a>
+                            <a  href="/vi.html" data-lang="vi">Việt Nam</a>
+          </div>
+        </li>
+       
       </ul>
+
     </div>
   </nav>
   <!-- Sticky Input (appears below nav and dropdown if open) -->
