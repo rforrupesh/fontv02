@@ -14,8 +14,8 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(to right, #f9f9f9, #eef1f5);
@@ -441,6 +441,180 @@
     }
   </style>
 
+<style>
+
+  body {
+  background: #f6f7f9;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.stepfonts-steps-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.stepfonts-steps-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 60px;
+  color: #232b38;
+}
+
+.stepfonts-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  position: relative;
+}
+
+.stepfonts-step {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  min-height: 180px;
+}
+
+.stepfonts-step.reverse {
+  flex-direction: row-reverse;
+}
+
+.stepfonts-step-img {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+}
+
+.stepfonts-step-img img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.10);
+  background: #fff;
+}
+
+.stepfonts-step-content {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 20px;
+  max-width: 400px;
+}
+
+.stepfonts-step-content h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.2rem;
+  color: #232b38;
+  font-weight: 600;
+}
+
+.stepfonts-step-content p {
+  color: #4a6375;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.stepfonts-step-center {
+  position: relative;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.stepfonts-step-number {
+  background: #4f8cff;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  margin-top: 0;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.10);
+  border: 3px solid #fff;
+  z-index: 2;
+}
+
+.stepfonts-step-line {
+  width: 2px;
+  flex: 1;
+  min-height: 100px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #d1dbe7,
+    #d1dbe7 8px,
+    transparent 8px,
+    transparent 18px
+  );
+  margin: 0 auto;
+  margin-top: 8px;
+}
+
+.stepfonts-step:last-child .stepfonts-step-line {
+  display: none;
+}
+.stepfonts{
+  text-align: center;
+  color: #4a6375;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 5px;
+}
+/* Responsive styles */
+@media (max-width: 900px) {
+  .stepfonts-step,
+  .stepfonts-step.reverse {
+    flex-direction: column !important;
+    align-items: center;
+    min-height: 0;
+    gap: 0;
+  }
+  .stepfonts-step-img {
+    order: 1;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 18px;
+    justify-content: center;
+  }
+  .stepfonts-step-center {
+    order: 2;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .stepfonts-step-content {
+    order: 3;
+    padding: 0 0 0 0;
+    max-width: 95vw;
+    align-items: center;
+    text-align: center;
+  }
+  .stepfonts-step-number {
+    margin: 0 0 0 0;
+  }
+  .stepfonts-step-line {
+    display: none;
+  }
+}
+
+</style>
 </head>
 <body>
  <nav class="navbar">
@@ -801,6 +975,74 @@
 
   <div id="copyNotification" class="notification">Copied!</div>
   <button id="backToTopBtn" onclick="scrollToTop()">⬆</button>
+
+ <div class="stepfonts-steps-container">
+  <h2>how to use Fancy Text Generator</h2>
+  <p class="stepfonts">Fancy fonts are a fun and stylish way to add stylish to your social media text posts. Follow these simple step-by-step guide to chnage your text font:
+
+</p>
+  <div class="stepfonts-steps">
+    <!-- Step 1 -->
+    <div class="stepfonts-step">
+      <div class="stepfonts-step-img">
+        <img src="https://fontgenerator.click/img/homepage-step-1.png" alt="Enter Your Text">
+      </div>
+      <div class="stepfonts-step-center">
+        <div class="stepfonts-step-number">1</div>
+        <div class="stepfonts-step-line"></div>
+      </div>
+      <div class="stepfonts-step-content">
+        <h3>Enter Your Text</h3>
+        <p>
+Start by entering your text into the input box on the page.
+Just click on the box and type whatever you like—your name, a phrase, a message, or anything else you want to turn into text.
+
+        </p>
+      </div>
+    </div>
+    <!-- Step 2 -->
+    <div class="stepfonts-step reverse">
+      <div class="stepfonts-step-content">
+        <h3>Click to Copy to Your Clipboard</h3>
+        <p>
+The tool generates fancy fonts and cool text styles for you with Preview your font. Once you find a font style you like, just click the “Copy” button next to it. Your fancy Font will be copied to your clipboard.  </p>
+      </div>
+      <div class="stepfonts-step-center">
+        <div class="stepfonts-step-number">2</div>
+        <div class="stepfonts-step-line"></div>
+      </div>
+      <div class="stepfonts-step-img">
+        <img src="https://fontgenerator.click/img/homepage-step-2.png" alt="click to Copy to Your Clipboard
+">
+      </div>
+    </div>
+    <!-- Step 3 -->
+    <div class="stepfonts-step">
+      <div class="stepfonts-step-img">
+        <img src="https://fontgenerator.click/img/homepage-step-3.png" alt="Paste Your Text Anywhere">
+      </div>
+      <div class="stepfonts-step-center">
+        <div class="stepfonts-step-number">3</div>
+      </div>
+      <div class="stepfonts-step-content">
+        <h3>Paste Your Text Anywhere</h3>
+        <p>
+Congratulations! 🎉
+Now you can paste your copied text anywhere online </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stepfonts-steps-container"> 
+<h2>Types of Fancy Text Fonts you can generate</h2>
+<p class="stepfonts">There are different categories of cool and stylish font styles that people love to copy and paste. Popular options include bold, italic, underline, and ⓑⓤⓑⓑⓛⓔ fonts. Every style is supported on platforms like Instagram, Facebook, and more, making your text look aesthetic.</p>
+<p class="stepfonts">
+cool text uses unique and stylish fonts to make your words stand out. It’s perfect for quickly updating your Instagram bio, creating cute headings, or sending stylish messages.
+
+also try these font styles:  Fullwidth Double Struck Bubble Monospace Calligraphy Decorated Greek-inspired Brackets Minimalist fonts</p>
+
+</div>
 
   <script>
    
