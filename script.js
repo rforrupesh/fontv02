@@ -1,88 +1,121 @@
-<script>
-/* ---------- Storage Helpers ---------- */
-function saveUserInput(value) {
-  if (value && value.trim() !== "") {
-    localStorage.setItem("userInput", value.trim());
-  } else {
-    localStorage.removeItem("userInput");
+// ---------- Cookie Helpers ----------
+function setCookie(name, value, days) {
+  let expires = "";
+  if (days) {
+    const date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = "; expires=" + date.toUTCString();
   }
+  document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
 }
 
-function loadUserInput() {
-  return localStorage.getItem("userInput") || "";
+function getCookie(name) {
+  const cookies = document.cookie.split("; ");
+  for (let c of cookies) {
+    const [key, value] = c.split("=");
+    if (key === name) return decodeURIComponent(value);
+  }
+  return "";
 }
 
-/* ---------- Font Converters ---------- */
+function deleteCookie(name) {
+  document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+// ---------- Transformations ----------
 function toCursive(text) {
-  const map = {
-    A:'𝒜',B:'ℬ',C:'𝒞',D:'𝒟',E:'ℰ',F:'ℱ',G:'𝒢',H:'ℋ',I:'ℐ',J:'𝒥',
-    K:'𝒦',L:'ℒ',M:'ℳ',N:'𝒩',O:'𝒪',P:'𝒫',Q:'𝒬',R:'ℛ',S:'𝒮',T:'𝒯',
-    U:'𝒰',V:'𝒱',W:'𝒲',X:'𝒳',Y:'𝒴',Z:'𝒵',
-    a:'𝒶',b:'𝒷',c:'𝒸',d:'𝒹',e:'ℯ',f:'𝒻',g:'ℊ',h:'𝒽',i:'𝒾',j:'𝒿',
-    k:'𝓀',l:'𝓁',m:'𝓂',n:'𝓃',o:'ℴ',p:'𝓅',q:'𝓆',r:'𝓇',s:'𝓈',t:'𝓉',
-    u:'𝓊',v:'𝓋',w:'𝓌',x:'𝓍',y:'𝓎',z:'𝓏'
-  };
-  return [...text].map(c=>map[c]||c).join('');
+  const normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  const cursive = "𝒜𝐵𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵" +
+                  "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏";
+  return [...text].map(ch => {
+    let i = normal.indexOf(ch);
+    return i > -1 ? cursive[i] : ch;
+  }).join("");
 }
+
 function toGothic(text) {
-  const map = {
-    A:'𝔄',B:'𝔅',C:'ℭ',D:'𝔇',E:'𝔈',F:'𝔉',G:'𝔊',H:'ℌ',I:'ℑ',J:'𝔍',
-    K:'𝔎',L:'𝔏',M:'𝔐',N:'𝔑',O:'𝔒',P:'𝔓',Q:'𝔔',R:'ℜ',S:'𝔖',T:'𝔗',
-    U:'𝔘',V:'𝔙',W:'𝔚',X:'𝔛',Y:'𝔜',Z:'ℨ',
-    a:'𝔞',b:'𝔟',c:'𝔠',d:'𝔡',e:'𝔢',f:'𝔣',g:'𝔤',h:'𝔥',i:'𝔦',j:'𝔧',
-    k:'𝔨',l:'𝔩',m:'𝔪',n:'𝔫',o:'𝔬',p:'𝔭',q:'𝔮',r:'𝔯',s:'𝔰',t:'𝔱',
-    u:'𝔲',v:'𝔳',w:'𝔴',x:'𝔵',y:'𝔶',z:'𝔷'
-  };
-  return [...text].map(c=>map[c]||c).join('');
+  const normal = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  const gothic = "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ" +
+                 "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷";
+  return [...text].map(ch => {
+    let i = normal.indexOf(ch);
+    return i > -1 ? gothic[i] : ch;
+  }).join("");
 }
+
 function toCurlyWrap(text) {
-  return [...text].map(c => c === " " ? " " : `⊰${c}⊱`).join('');
+  return [...text].map(ch => `⊰${ch}⊱`).join("");
 }
 
-/* ---------- Update Outputs ---------- */
-function updateText() {
-  const inputBox = document.getElementById("userInput"); // only on homepage
-  const input = inputBox ? inputBox.value.trim() : loadUserInput();
-
-  if (inputBox) saveUserInput(input);
-
-  const text = input || null;
-
-  // Cursive (homepage only)
+// ---------- Update Outputs ----------
+function updateOutputs(text) {
+  // Cursive
   const cursiveEl = document.getElementById("CursiveOutput");
   if (cursiveEl) {
     cursiveEl.textContent = text ? toCursive(text) : cursiveEl.dataset.default;
   }
 
-  // Gothic (homepage only)
+  // Gothic
   const gothicEl = document.getElementById("GothicOutput");
   if (gothicEl) {
     gothicEl.textContent = text ? toGothic(text) : gothicEl.dataset.default;
   }
 
-  // Curly (symbol-wrappers page only)
+  // Curly Wrap
   const curlyEl = document.getElementById("CurlyOutput");
   if (curlyEl) {
     curlyEl.textContent = text ? toCurlyWrap(text) : curlyEl.dataset.default;
   }
 }
 
-/* ---------- Input handling ---------- */
-function handleInputChange() { updateText(); }
-function clearInput() {
-  const inputBox = document.getElementById("userInput");
-  if (inputBox) inputBox.value = "";
-  saveUserInput("");
-  updateText();
+// ---------- Input Handling ----------
+function handleInputChange() {
+  const input = document.getElementById("userInput");
+  const value = input.value.trim();
+
+  if (value) {
+    setCookie("fontInput", value, 7);
+    updateOutputs(value);
+    document.querySelector(".clear-btn").style.display = "inline";
+  } else {
+    clearInput();
+  }
 }
 
-/* ---------- Init ---------- */
-document.addEventListener("DOMContentLoaded", function() {
-  const inputBox = document.getElementById("userInput");
-  if (inputBox) {
-    const saved = loadUserInput();
-    if (saved) inputBox.value = saved;
+function clearInput() {
+  const input = document.getElementById("userInput");
+  input.value = "";
+  deleteCookie("fontInput");
+  updateOutputs(""); // reset all to default
+  document.querySelector(".clear-btn").style.display = "none";
+}
+
+// ---------- Copy Button ----------
+function copyToClipboard(id) {
+  const el = document.getElementById(id);
+  navigator.clipboard.writeText(el.textContent).then(() => {
+    const note = document.getElementById("copyNotification");
+    note.textContent = "Copied!";
+    note.style.display = "block";
+    setTimeout(() => (note.style.display = "none"), 1200);
+  });
+}
+
+// ---------- On Page Load ----------
+window.onload = function () {
+  const saved = getCookie("fontInput");
+  const input = document.getElementById("userInput");
+
+  if (input) {
+    if (saved) {
+      input.value = saved;
+      updateOutputs(saved);
+      document.querySelector(".clear-btn").style.display = "inline";
+    } else {
+      updateOutputs("");
+    }
+  } else {
+    // no input box (future support) -> still update outputs
+    updateOutputs(saved || "");
   }
-  updateText();
-});
-</script>
+};
