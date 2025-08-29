@@ -1,1315 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="robots" content="noindex" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
-    <meta http-equiv='content-language' content='en' />
-
   <meta charset="UTF-8">
-  <title>Fancy Font Styles</title>
+  <title>Font Generator</title>
   <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to right, #f9f9f9, #eef1f5);
-            color: #333;
-            line-height: 1.6;
-        }
-
-   
-        .output-list h2 {
-            font-size: 20px;
-            margin-bottom: 2px;
-            color: #1c1818;
-            font-weight: 400;
-        }
-
-        .input-container {
-            position: sticky;
-            top: 0;
-            z-index: 9;
-            padding: 5px;
-            margin: 5px;
-            background-color: #fafbfb;
-            border-radius: 9999px;
-        }
-
-        .input-container input {
-            width: 100%;
-            padding: 12px 40px 12px 16px;
-            font-size: 18px;
-            border: 1px solid #dadce0;
-            border-radius: 9999px;
-            outline: none;
-            transition: box-shadow 0.2s ease;
-            box-sizing: border-box;
-        }
-
-        .input-container input:focus {
-            border-color: #000000;
-            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.2);
-            border: 2px solid black;
-        }
-
-        .clear-btn {
-            position: absolute;
-            right: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-            color: #888;
-            cursor: pointer;
-            user-select: none;
-            display: none;
-        }
-
-        .clear-btn:hover {
-            color: #d93025;
-        }
-
-        .output-list {
-            display: flex;
-            flex-direction: column;
-            gap: 9px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .output-box {
-            background: #fff;
-            padding: 8px 12px;
-            border-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .text-content {
-            flex-grow: 1;
-            margin-right: 15px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .output-text {
-            font-size: 21px;
-            margin-bottom: 4px;
-            color: #111;
-            word-break: break-word;
-        }
-
-        .output-box:hover {
-            background-color: #e5f2f8;
-        }
-
-        .style-name {
-            font-size: 12px;
-            color: #777;
-        }
-
-        .copy-btn {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 16px;
-            font-size: 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .copy-btn:hover {
-            background-color: #0056b3;
-        }
-
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #222;
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 15px;
-            display: none;
-            z-index: 999;
-        }
-
-        #backToTopBtn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        #backToTopBtn:hover {
-            background-color: #555;
-            transform: scale(1.1);
-        }
-
-        #backToTopBtn::after {
-            content: "Top";
-            position: absolute;
-            right: 60px;
-            background-color: #333;
-            color: white;
-            padding: 5px 10px;
-            border-radius: 6px;
-            opacity: 0;
-            white-space: nowrap;
-            pointer-events: none;
-            transition: opacity 0.2s;
-            font-size: 14px;
-        }
-
-        #backToTopBtn:hover::after {
-            opacity: 1;
-        }
-
-      @media (max-width: 768px) {
-            .menu {
-                flex-direction: column;
-                background: #f0ecec;
-                color: white;
-                position: fixed;
-                top: 0;
-                left: -100%;
-                height: 100%;
-                width: 100%;
-                padding: 60px 20px;
-                transition: left 0.3s ease;
-                z-index: 10000;
-                align-items: flex-end;
-                text-align: ;
-            }
-
-            .menu.show {
-                left: 0;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .dropdown {
-                width: 100%;
-            }
-
-            .dropdown-content {
-                position: static;
-                display: none;
-                background: #fefefe;
-                border-radius: 0;
-                box-shadow: none;
-                width: 100%;
-                text-align: left;
-                z-index: 10002;
-            }
-
-            .dropdown.show .dropdown-content {
-                display: block;
-            }
-
-            .dropdown > a {
-                width: 100%;
-            }
-        }
-        /* Mobile responsive for content */
-        @media (max-width: 600px) {
-            .output-box {
-                flex-direction: row;
-                align-items: center;
-            }
-
-            .copy-btn {
-                margin-left: auto;
-                margin-top: 0;
-            }
-
-            .text-content {
-                flex: 1;
-                margin-right: 15px;
-            }
-
-            .output-text {
-                font-size: 20px;
-            }
-        }
-    </style>
-
-    <style>  nav { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-  .nav-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    padding: 0 24px;
-    justify-content: space-between;
-    position: relative;
-  }
-  .logo {
-    font-weight: bold;
-    font-size: 1.4em;
-    color: #222;
-    letter-spacing: 1px;
-  }
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 8px;
-  }
-  .nav-links li {
-    position: relative;
-    border-radius: 8px;
-    transition: background 0.2s;
-  }
-  .nav-links a,
-  .nav-links label.submenu-label {
-    color: #222;
-    text-decoration: none;
-    padding: 10px 22px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    font-size: 1.06em;
-    font-weight: 500;
-    transition: background 0.2s, color 0.2s;
-    cursor: pointer;
-    gap: 8px;
-  }
-  .nav-links a.active,
-  .nav-links a:hover,
-  .nav-links label.submenu-label:hover {
-    background: #f4f6fa;
-    color: #0077ff;
-  }
-  .nav-links li:not(:last-child) {
-    margin-right: 4px;
-  }
-  .dropdown > a::after,
-  .dropdown > label.submenu-label::after {
-    content: "▶";
-    font-size: 0.9em;
-    margin-left: 6px;
-    color: #888;
-    transition: transform 0.2s;
-  }
-  /* Dropdown menu for desktop */
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 110%;
-    left: 0;
-    min-width: 180px;
-    background: #fff;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-    border-radius: 10px;
-    overflow: hidden;
-    z-index: 10;
-    padding: 8px 0;
-  }
-  .dropdown-menu li {
-    margin: 0;
-    border-radius: 0;
-  }
-  .dropdown-menu a {
-    padding: 10px 24px 10px 32px;
-    font-size: 1em;
-    color: #333;
-    border-radius: 0;
-    transition: background 0.2s, color 0.2s;
-  }
-  .dropdown-menu a:hover {
-    background: #f0f4fa;
-    color: #0077ff;
-  }
-  .dropdown:hover .dropdown-menu {
-    display: block;
-  }
-  #nav-toggle { display: none; }
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    width: 30px;
-    height: 24px;
-    justify-content: space-between;
-  }
-  .hamburger span {
-    display: block;
-    height: 4px;
-    background: #222;
-    border-radius: 2px;
-    transition: 0.3s;
-  }
-  .close-menu {
-    display: none;
-    position: absolute;
-    top: 18px;
-    right: 24px;
-    font-size: 2em;
-    color: #222;
-    cursor: pointer;
-    background: none;
-    border: none;
-    z-index: 120;
-  }
-  #submenu-toggle { display: none; }
-  @media (max-width: 768px) {
-    .nav-container { padding: 0 8px; }
-    .hamburger { display: flex; order: 0; }
-    .logo { order: 1; flex-grow: 1; text-align: center; }
-    .nav-links {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 66.666%;
-      background: #fff;
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 80px 0 24px 0;
-      gap: 4px;
-      transform: translateX(-100%);
-      transition: transform 0.3s cubic-bezier(.4,0,.2,1);
-      box-shadow: 2px 0 16px rgba(0,0,0,0.08);
-      z-index: 99;
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #fafafa;
     }
-    #nav-toggle:checked ~ .nav-links { transform: translateX(0); }
-    .nav-links li {
-      width: 100%;
-      border-radius: 0;
-      margin: 0;
+
+    h1 { margin-bottom: 5px; }
+    p { color: #555; }
+
+    .input-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
     }
-    .nav-links a,
-    .nav-links label.submenu-label {
-      width: 100%;
-      padding: 16px 32px;
-      font-size: 1.13em;
-      border-radius: 0;
+
+    #userInput {
+      padding: 10px;
+      font-size: 16px;
+      width: 280px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
-    .dropdown-menu { display: none !important; }
-    .dropdown > a.desktop-only { display: none; }
-    .dropdown > label.submenu-label {
-      display: flex;
-      width: 100%;
-      background: none;
-      color: #222;
-      font-weight: 500;
-      font-size: 1.13em;
-      border-radius: 0;
-    }
-    .dropdown > label.submenu-label::after {
-      content: "▶";
-      font-size: 1em;
-      margin-left: auto;
+
+    .clear-btn {
+      display: none;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      font-size: 18px;
       color: #888;
     }
-    /* Submenu slide panel from left */
-    .submenu-slide {
-      list-style: none;
+
+    .output-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 12px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .text-content {
       display: flex;
       flex-direction: column;
-      gap: 0;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 66.666%;
-      background: #fff;
-      z-index: 110;
-      padding: 80px 0 24px 0;
-      transform: translateX(-100%);
-      transition: transform 0.3s cubic-bezier(.4,0,.2,1);
-      box-shadow: 2px 0 16px rgba(0,0,0,0.08);
     }
-    .submenu-slide li {
-      width: 100%;
-      border-radius: 0;
-      margin: 0;
-      list-style: none;
+
+    .output-text {
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 4px;
     }
-    .submenu-slide a {
-      display: block;
-      width: 100%;
-      padding: 16px 48px;
-      font-size: 1.08em;
-      color: #333;
-      border-left: 3px solid transparent;
-      background: none;
-      text-decoration: none;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
+
+    .style-name {
+      font-size: 14px;
+      color: #666;
     }
-    .submenu-slide a:hover {
-      background: #f0f4fa;
-      color: #0077ff;
-      border-left: 3px solid #0077ff;
-    }
-    .back-btn {
-      display: block;
-      margin-bottom: 12px;
-      color: #0077ff;
-      background: #f9fafb;
-      border: none;
-      font-size: 1.08em;
+
+    .copy-btn {
       cursor: pointer;
-      padding: 16px 32px;
-      text-align: left;
-      font-weight: bold;
-      border-radius: 0;
-      border-bottom: 1px solid #f0f0f0;
+      background: none;
+      border: none;
+      color: #444;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
     }
-    #submenu-toggle:checked ~ .submenu-slide {
-      transform: translateX(0);
-    }
-    #submenu-toggle:checked ~ .nav-links {
-      visibility: hidden;
-      pointer-events: none;
-    }
-    #nav-toggle:checked ~ .close-menu { display: block; }
-    .overlay {
+
+    #copyNotification {
       display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.15);
-      z-index: 98;
+      margin-top: 12px;
+      color: green;
+      font-weight: bold;
     }
-    #nav-toggle:checked ~ .overlay { display: block; }
-  }
-  @media (min-width: 769px) {
-    .submenu-label, .submenu-slide, .close-menu { display: none !important; }
-  }
-</style>
+  </style>
 </head>
 <body>
-<nav>
-  <div class="nav-container">
-    <span class="logo">MySite</span>
-    <!-- Hamburger toggle -->
-    <input type="checkbox" id="nav-toggle" />
-    <label class="hamburger" for="nav-toggle" aria-label="Open menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-    <!-- Close icon -->
-    <label class="close-menu" for="nav-toggle" aria-label="Close menu">&times;</label>
-    <!-- Main navigation links -->
-    <ul class="nav-links">
-      <li><a href="#" class="active">Home</a></li>
-      <li class="dropdown">
-        <!-- Desktop link -->
-        <a href="#" class="desktop-only">Services</a>
-        <!-- Mobile submenu label -->
-        <label for="submenu-toggle" class="submenu-label">Services</label>
-        <!-- Desktop dropdown -->
-        <ul class="dropdown-menu">
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">SEO</a></li>
-          <li><a href="#">Hosting</a></li>
-        </ul>
-      </li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-    <!-- Submenu toggle -->
-    <input type="checkbox" id="submenu-toggle" />
-    <!-- Submenu sliding panel (from left) -->
-    <ul class="submenu-slide">
-      <li>
-        <label for="submenu-toggle" class="back-btn">&#8592; Back to Main Menu</label>
-      </li>
-      <li><a href="#">Web Design</a></li>
-      <li><a href="#">SEO</a></li>
-      <li><a href="#">Hosting</a></li>
-    </ul>
-    <div class="overlay" id="nav-overlay"></div>
-  </div>
-</nav>
-<script>
-  // Close nav and submenu when overlay is clicked
-  document.getElementById('nav-overlay').addEventListener('click', function() {
-    document.getElementById('nav-toggle').checked = false;
-    document.getElementById('submenu-toggle').checked = false;
-  });
-  // Optional: Close submenu when main menu closes
-  document.getElementById('nav-toggle').addEventListener('change', function() {
-    if (!this.checked) {
-      document.getElementById('submenu-toggle').checked = false;
-    }
-  });
-</script>
- 
 
-
-
-
-  <div class="output-list">
+  <h1>Font Generator</h1>
+  <p>Type text and copy it in different styles.</p>
 
   <div class="input-container">
-    <input type="text" id="userInput" placeholder="Type something..." value="" oninput="handleInputChange()" />
+    <input type="text" id="userInput" placeholder="Type something..." oninput="handleInputChange()" />
     <span class="clear-btn" onclick="clearInput()">×</span>
   </div>
 
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="CursiveOutput" data-default="𝒞𝓊𝓇𝓈𝒾𝓋ℯ">𝒞𝓊𝓇𝓈𝒾𝓋ℯ</span>
-        <span class="style-name">Cursive</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('CursiveOutput')">Copy</button>
+  <!-- Output Box: Cursive -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CursiveOutput" data-default="𝒞𝓊𝓇𝓈𝒾𝓋ℯ">𝒞𝓊𝓇𝓈𝒾𝓋ℯ</span>
+      <span class="style-name">Cursive</span>
     </div>
-
-     <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="HistoricalOutput" data-default="ꃅꀤꌗ꓄ꂦꋪꀤꉓꍏ꒒">ꃅꀤꌗ꓄ꂦꋪꀤꉓꍏ꒒</span>
-        <span class="style-name">Historical</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('HistoricalOutput')">Copy</button>
-    </div>
-
-     <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="GothicOutput" data-default="𝔊𝔬𝔱𝔥𝔦𝔠">𝔊𝔬𝔱𝔥𝔦𝔠</span>
-        <span class="style-name">Gothic</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('GothicOutput')">Copy</button>
-    </div>
-
-     <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="RoundedOutput" data-default="ᖇOᑌᑎᗪEᗪ">ᖇOᑌᑎᗪEᗪ</span>
-        <span class="style-name">Rounded</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('RoundedOutput')">Copy</button>
-    </div>
-
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="VintageOutput" data-default="ᏉᎨᏁᏖᎯᎶᎬ">ᏉᎨᏁᏖᎯᎶᎬ</span>
-        <span class="style-name">Vintage</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('VintageOutput')">Copy</button>
-    </div>
-
-     <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="TribalOutput" data-default="ፕዪጎጌልረ">ፕዪጎጌልረ</span>
-        <span class="style-name">Tribal</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('TribalOutput')">Copy</button>
-    </div>
-
-     <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="GracefulOutput" data-default="ցɾმƈεբυʅ">ցɾმƈεբυʅ</span>
-        <span class="style-name">Graceful</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('GracefulOutput')">Copy</button>
-    </div>
- 
-    <h2>Free Fancy Text</h2>
-
-     <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="DoubleStruckOutput" data-default="𝔻𝕠𝕦𝕓𝕝𝕖 𝕊𝕥𝕣𝕦𝕔𝕜">𝔻𝕠𝕦𝕓𝕝𝕖 𝕊𝕥𝕣𝕦𝕔𝕜</span>
-        <span class="style-name">Double Struck Text</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('DoubleStruckOutput')">Copy</button>
-    </div>
-
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="SymbolicOutput" data-default="ꮪꝟꕮꞗꭴ꒒ꭵꮯ">ꮪꝟꕮꞗꭴ꒒ꭵꮯ</span>
-        <span class="style-name">Symbolic</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('SymbolicOutput')">Copy</button>
-    </div>
-
-     <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="IconicOutput" data-default="꒐ꉔꄲꋊ꒐ꉔ">꒐ꉔꄲꋊ꒐ꉔ</span>
-        <span class="style-name">Iconic </span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('IconicOutput')">Copy</button>
-    </div>
-
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="frakturOutput" data-default="𝔉𝔯𝔞𝔨𝔱𝔲𝔯">𝔉𝔯𝔞𝔨𝔱𝔲𝔯</span>
-        <span class="style-name">Fraktur</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('frakturOutput')">Copy</button>
-    </div>
-
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="bubbleOutput" data-default="Ⓑⓤⓑⓑⓛⓔⓢ">Ⓑⓤⓑⓑⓛⓔⓢ</span>
-        <span class="style-name">Bubbles</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('bubbleOutput')">Copy</button>
-    </div>
-
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="etruscanOutput" data-default="𐌀𐌕𐌓𐌖𐌔𐌂𐌕𐌍">𐌀𐌕𐌓𐌖𐌔𐌂𐌕𐌍</span>
-        <span class="style-name">Etruscan</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('etruscanOutput')">Copy</button>
-    </div>
-
-
-     <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="PlayfulOutput" data-default="թꝇɑƴƒᤙꝇ">թꝇɑƴƒᤙꝇ</span>
-        <span class="style-name">Playful </span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('PlayfulOutput')">Copy</button>
-    </div>
-
-     <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="WideOutput" data-default="Ｗｉｄｅ">Ｗｉｄｅ</span>
-        <span class="style-name">Wide </span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('WideOutput')">Copy</button>
-    </div>
-
- <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="MonospaceOutput" data-default="𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎">𝙼𝚘𝚗𝚘𝚜𝚙𝚊𝚌𝚎</span>
-        <span class="style-name">Monospace </span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('MonospaceOutput')">Copy</button>
-    </div>
-
-
-<h2>Cool Fonts</h2>
-
- <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="BoldOutput" data-default="𝗕𝗼𝗹𝗱">𝗕𝗼𝗹𝗱</span>
-        <span class="style-name">Bold</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('BoldOutput')">Copy</button>
-    </div>
- <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="ItalicOutput" data-default="𝐼𝑡𝑎𝑙𝑖𝑐">𝐼𝑡𝑎𝑙𝑖𝑐</span>
-        <span class="style-name">Italic</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('ItalicOutput')">Copy</button>
-    </div>
- <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="BoldItalicOutput" data-default="𝑩𝒐𝒍𝒅 𝑰𝒕𝒂𝒍𝒊𝒄">𝑩𝒐𝒍𝒅 𝑰𝒕𝒂𝒍𝒊𝒄</span>
-        <span class="style-name">Bold Italic </span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('BoldItalicOutput')">Copy</button>
-    </div>
- <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="SansSerifBoldOutput" data-default="𝗦𝗮𝗻𝘀-𝗦𝗲𝗿𝗶𝗳 𝗕𝗼𝗹𝗱">𝗦𝗮𝗻𝘀-𝗦𝗲𝗿𝗶𝗳 𝗕𝗼𝗹𝗱</span>
-        <span class="style-name">Sans-Serif Bold </span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('SansSerifBoldOutput')">Copy</button>
-    </div>
-
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="SansSerifOutput" data-default="𝖲𝖺𝗇𝗌-𝖲𝖾𝗋𝗂𝖿">𝖲𝖺𝗇𝗌-𝖲𝖾𝗋𝗂𝖿</span>
-        <span class="style-name">Sans-Serif </span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('SansSerifOutput')">Copy</button>
-    </div>
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="SansSerifItalicOutput" data-default="𝘚𝘢𝘯𝘴-𝘚𝘦𝘳𝘪𝘧 𝘐𝘵𝘢𝘭𝘪𝘤">𝘚𝘢𝘯𝘴-𝘚𝘦𝘳𝘪𝘧 𝘐𝘵𝘢𝘭𝘪𝘤</span>
-        <span class="style-name">Sans-Serif Italic </span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('SansSerifItalicOutput')">Copy</button>
-    </div>
-
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="SansSerifBoldItalicOutput" data-default="𝙎𝙖𝙣𝙨-𝙎𝙚𝙧𝙞𝙛 𝘽𝙤𝙡𝙙 𝙄𝙩𝙖𝙡𝙞𝙘">𝙎𝙖𝙣𝙨-𝙎𝙚𝙧𝙞𝙛 𝘽𝙤𝙡𝙙 𝙄𝙩𝙖𝙡𝙞𝙘</span>
-        <span class="style-name">Sans-Serif Bold Italic</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('SansSerifBoldItalicOutput')">Copy</button>
-    </div>
-
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="SmallCapitalOutput" data-default="ꜱᴍᴀʟʟ ᴄᴀᴘɪᴛᴀʟ">ꜱᴍᴀʟʟ ᴄᴀᴘɪᴛᴀʟ</span>
-        <span class="style-name">Small Capital </span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('SmallCapitalOutput')">Copy</button>
-    </div>
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="BoldCursiveOutput" data-default="𝓑𝓸𝓵𝓭 𝓒𝓾𝓻𝓼𝓲𝓿𝓮">𝓑𝓸𝓵𝓭 𝓒𝓾𝓻𝓼𝓲𝓿𝓮</span>
-        <span class="style-name">Bold Cursive </span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('BoldCursiveOutput')">Copy</button>
-    </div>
-
-
-<h2>Fancy letters</h2>
-
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="blocktextOutput" data-default="🄱🄻🄾🄲🄺 🅃🄴🅇🅃">🄱🄻🄾🄲🄺 🅃🄴🅇🅃</span>
-        <span class="style-name">Block Text </span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('blocktextOutput')">Copy</button>
-    </div>
-
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="AsianFontOutput" data-default="卂丂丨卂几">卂丂丨卂几</span>
-        <span class="style-name">Asian Font </span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('AsianFontOutput')">Copy</button>
-    </div>
-
-        <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="DualCurveOutput" data-default="D͜͡u͜͡a͜͡l͜͡ C͜͡u͜͡r͜͡v͜͡e͜͡">D͜͡u͜͡a͜͡l͜͡ C͜͡u͜͡r͜͡v͜͡e͜͡</span>
-        <span class="style-name">Dual Curve</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('DualCurveOutput')">Copy</button>
-    </div>
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="ModerntextOutput" data-default="MƠƊЄƦƝ ƬЄҲƬ">MƠƊЄƦƝ ƬЄҲƬ</span>
-        <span class="style-name">Modern text</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('ModerntextOutput')">Copy</button>
-    </div>
-    <div class="output-box">
-      <div class="text-content">
-        <span class="output-text" id="PrimeFontOutput" data-default="Ρ૨เɱε">Ρ૨เɱε</span>
-        <span class="style-name">Prime Font</span>
-      </div>
-      <button class="copy-btn" onclick="copyToClipboard('PrimeFontOutput')">Copy</button>
-    </div>
-
-
-
-
-
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CursiveOutput')"></button>
   </div>
 
+  <!-- Output Box: Gothic -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="GothicOutput" data-default="𝔊𝔬𝔱𝔥𝔦𝔠">𝔊𝔬𝔱𝔥𝔦𝔠</span>
+      <span class="style-name">Gothic</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('GothicOutput')"></button>
+  </div>
 
+  <div id="copyNotification"></div>
 
-
-  <div id="copyNotification" class="notification">Copied!</div>
-  <button id="backToTopBtn" onclick="scrollToTop()">⬆</button>
-
-  <script>
-   
-
-    function toCursive(text) {
-      const map = {
-        A: '𝒜', B: 'ℬ', C: '𝒞', D: '𝒟', E: 'ℰ', F: 'ℱ', G: '𝒢', H: 'ℋ', I: 'ℐ', J: '𝒥',
-  K: '𝒦', L: 'ℒ', M: 'ℳ', N: '𝒩', O: '𝒪', P: '𝒫', Q: '𝒬', R: 'ℛ', S: '𝒮', T: '𝒯',
-  U: '𝒰', V: '𝒱', W: '𝒲', X: '𝒳', Y: '𝒴', Z: '𝒵',
-  a: '𝒶', b: '𝒷', c: '𝒸', d: '𝒹', e: 'ℯ', f: '𝒻', g: 'ℊ', h: '𝒽', i: '𝒾', j: '𝒿',
-  k: '𝓀', l: '𝓁', m: '𝓂', n: '𝓃', o: 'ℴ', p: '𝓅', q: '𝓆', r: '𝓇', s: '𝓈', t: '𝓉',
-  u: '𝓊', v: '𝓋', w: '𝓌', x: '𝓍', y: '𝓎', z: '𝓏'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-
-    function toHistorical(text) {
-      const map = {
-         A: 'ꍏ', B: 'ꌃ', C: 'ꉓ', D: 'ꀷ', E: 'ꍟ', F: 'ꄘ', G: 'ꁍ', H: 'ꃅ', I: 'ꀤ', J: 'ꀭ',
-  K: 'ꀘ', L: '꒒', M: 'ꂵ', N: 'ꊮ', O: 'ꂦ', P: 'ꉣ', Q: 'ꆰ', R: 'ꋪ', S: 'ꌗ', T: '꓄',
-  U: 'ꀎ', V: 'ꏝ', W: 'ꅏ', X: 'ꉧ', Y: 'ꌩ', Z: 'ꁴ',
-  a: 'ꍏ', b: 'ꌃ', c: 'ꉓ', d: 'ꀷ', e: 'ꍟ', f: 'ꄘ', g: 'ꁍ', h: 'ꃅ', i: 'ꀤ', j: 'ꀭ',
-  k: 'ꀘ', l: '꒒', m: 'ꂵ', n: 'ꊮ', o: 'ꂦ', p: 'ꉣ', q: 'ꆰ', r: 'ꋪ', s: 'ꌗ', t: '꓄',
-  u: 'ꀎ', v: 'ꏝ', w: 'ꅏ', x: 'ꉧ', y: 'ꌩ', z: 'ꁴ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-
-    function toGothic(text) {
-   const map = {
-     A: '𝔄', B: '𝔅', C: 'ℭ', D: '𝔇', E: '𝔈', F: '𝔉', G: '𝔊', H: 'ℌ', I: 'ℑ', J: '𝔍',
-  K: '𝔎', L: '𝔏', M: '𝔐', N: '𝔑', O: '𝔒', P: '𝔓', Q: '𝔔', R: 'ℜ', S: '𝔖', T: '𝔗',
-  U: '𝔘', V: '𝔙', W: '𝔚', X: '𝔛', Y: '𝔜', Z: 'ℨ',
-  a: '𝔞', b: '𝔟', c: '𝔠', d: '𝔡', e: '𝔢', f: '𝔣', g: '𝔤', h: '𝔥', i: '𝔦', j: '𝔧',
-  k: '𝔨', l: '𝔩', m: '𝔪', n: '𝔫', o: '𝔬', p: '𝔭', q: '𝔮', r: '𝔯', s: '𝔰', t: '𝔱',
-  u: '𝔲', v: '𝔳', w: '𝔴', x: '𝔵', y: '𝔶', z: '𝔷'
-  };
-  return [...text].map(c => map[c] || c).join('');
+<script>
+/* ---------- Cookie Helpers ---------- */
+function setCookie(name, value, days = 7) {
+  if (!value) { // if empty, delete cookie
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+    return;
+  }
+  const d = new Date();
+  d.setTime(d.getTime() + (days*24*60*60*1000));
+  document.cookie = name + "=" + encodeURIComponent(value) + ";expires=" + d.toUTCString() + ";path=/";
+}
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+  return match ? decodeURIComponent(match[2]) : "";
 }
 
+/* ---------- Font Converters ---------- */
+function toCursive(text) {
+  const map = {
+    A:'𝒜',B:'ℬ',C:'𝒞',D:'𝒟',E:'ℰ',F:'ℱ',G:'𝒢',H:'ℋ',I:'ℐ',J:'𝒥',
+    K:'𝒦',L:'ℒ',M:'ℳ',N:'𝒩',O:'𝒪',P:'𝒫',Q:'𝒬',R:'ℛ',S:'𝒮',T:'𝒯',
+    U:'𝒰',V:'𝒱',W:'𝒲',X:'𝒳',Y:'𝒴',Z:'𝒵',
+    a:'𝒶',b:'𝒷',c:'𝒸',d:'𝒹',e:'ℯ',f:'𝒻',g:'ℊ',h:'𝒽',i:'𝒾',j:'𝒿',
+    k:'𝓀',l:'𝓁',m:'𝓂',n:'𝓃',o:'ℴ',p:'𝓅',q:'𝓆',r:'𝓇',s:'𝓈',t:'𝓉',
+    u:'𝓊',v:'𝓋',w:'𝓌',x:'𝓍',y:'𝓎',z:'𝓏'
+  };
+  return [...text].map(c=>map[c]||c).join('');
+}
+function toGothic(text) {
+  const map = {
+    A:'𝔄',B:'𝔅',C:'ℭ',D:'𝔇',E:'𝔈',F:'𝔉',G:'𝔊',H:'ℌ',I:'ℑ',J:'𝔍',
+    K:'𝔎',L:'𝔏',M:'𝔐',N:'𝔑',O:'𝔒',P:'𝔓',Q:'𝔔',R:'ℜ',S:'𝔖',T:'𝔗',
+    U:'𝔘',V:'𝔙',W:'𝔚',X:'𝔛',Y:'𝔜',Z:'ℨ',
+    a:'𝔞',b:'𝔟',c:'𝔠',d:'𝔡',e:'𝔢',f:'𝔣',g:'𝔤',h:'𝔥',i:'𝔦',j:'𝔧',
+    k:'𝔨',l:'𝔩',m:'𝔪',n:'𝔫',o:'𝔬',p:'𝔭',q:'𝔮',r:'𝔯',s:'𝔰',t:'𝔱',
+    u:'𝔲',v:'𝔳',w:'𝔴',x:'𝔵',y:'𝔶',z:'𝔷'
+  };
+  return [...text].map(c=>map[c]||c).join('');
+}
 
+/* ---------- Update Output ---------- */
+function updateText() {
+  const inputField = document.getElementById("userInput");
+  const input = inputField.value.trim();
 
-    function toRounded(text) {
-      const map = {
-        A: 'ᗩ', B: 'ᗷ', C: 'ᑕ', D: 'ᗪ', E: 'E', F: 'ᖴ', G: 'G', H: 'ᕼ', I: 'I', J: 'ᒍ',
-  K: 'K', L: 'ᒪ', M: 'ᗰ', N: 'ᑎ', O: 'O', P: 'ᑭ', Q: 'ᑫ', R: 'ᖇ', S: 'ᔕ', T: 'T',
-  U: 'ᑌ', V: 'ᐯ', W: 'ᗯ', X: '᙭', Y: 'Y', Z: 'ᘔ',
-  a: 'ᗩ', b: 'ᗷ', c: 'ᑕ', d: 'ᗪ', e: 'E', f: 'ᖴ', g: 'G', h: 'ᕼ', i: 'I', j: 'ᒍ',
-  k: 'K', l: 'ᒪ', m: 'ᗰ', n: 'ᑎ', o: 'O', p: 'ᑭ', q: 'ᑫ', r: 'ᖇ', s: 'ᔕ', t: 'T',
-  u: 'ᑌ', v: 'ᐯ', w: 'ᗯ', x: '᙭', y: 'Y', z: 'ᘔ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
+  if (input) {
+    setCookie("userInput", input); // save cookie
+  } else {
+    setCookie("userInput", "");    // clear cookie
+  }
 
-    function toVintage(text) {
-      const map = {
-       A: 'Ꭿ', B: 'Ᏸ', C: 'Ꮸ', D: 'Ꭰ', E: 'Ꭼ', F: 'Ꮀ', G: 'Ꮆ', H: 'Ꮋ', I: 'Ꭸ', J: 'Ꮰ',
-  K: 'Ꮶ', L: 'Ꮭ', M: 'Ꮇ', N: 'Ꮑ', O: 'Ꮎ', P: 'Ꮲ', Q: 'Ꮕ', R: 'Ꮢ', S: 'Ꮥ', T: 'Ꮦ',
-  U: 'Ꮼ', V: 'Ꮙ', W: 'Ꮿ', X: 'Ꮂ', Y: 'Ꮍ', Z: 'Ꮓ',
-  a: 'Ꭿ', b: 'Ᏸ', c: 'Ꮸ', d: 'Ꭰ', e: 'Ꭼ', f: 'Ꮀ', g: 'Ꮆ', h: 'Ꮋ', i: 'Ꭸ', j: 'Ꮰ',
-  k: 'Ꮶ', l: 'Ꮭ', m: 'Ꮇ', n: 'Ꮑ', o: 'Ꮎ', p: 'Ꮲ', q: 'Ꮕ', r: 'Ꮢ', s: 'Ꮥ', t: 'Ꮦ',
-  u: 'Ꮼ', v: 'Ꮙ', w: 'Ꮿ', x: 'Ꮂ', y: 'Ꮍ', z: 'Ꮓ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
+  const text = input || null;
 
-    function toTribal(text) {
-      const map = {
-         A: 'ል', B: 'ጌ', C: 'ር', D: 'ዕ', E: 'ቿ', F: 'ቻ', G: 'ኗ', H: 'ዘ', I: 'ጎ', J: 'ጋ',
-  K: 'ጕ', L: 'ረ', M: 'ጠ', N: 'ክ', O: 'ዐ', P: 'የ', Q: 'ዒ', R: 'ዪ', S: 'ነ', T: 'ፕ',
-  U: 'ሁ', V: 'ሀ', W: 'ሠ', X: 'ሸ', Y: 'ሃ', Z: 'ጊ',
-  a: 'ል', b: 'ጌ', c: 'ር', d: 'ዕ', e: 'ቿ', f: 'ቻ', g: 'ኗ', h: 'ዘ', i: 'ጎ', j: 'ጋ',
-  k: 'ጕ', l: 'ረ', m: 'ጠ', n: 'ክ', o: 'ዐ', p: 'የ', q: 'ዒ', r: 'ዪ', s: 'ነ', t: 'ፕ',
-  u: 'ሁ', v: 'ሀ', w: 'ሠ', x: 'ሸ', y: 'ሃ', z: 'ጊ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
+  // Cursive
+  document.getElementById("CursiveOutput").textContent =
+    text ? toCursive(text) : document.getElementById("CursiveOutput").dataset.default;
 
-    
-function toGraceful(text) {
-      const map = {
-        A: 'მ', B: 'ზ', C: 'ე', D: 'ძ', E: 'პ', F: 'f', G: 'ც', H: 'h', I: 'í', J: 'ʝ',
-  K: 'κ', L: 'l', M: 'ო', N: 'ղ', O: 'ѻ', P: 'ρ', Q: 'გ', R: 'Γ', S: 'ჰ', T: 'ŧ',
-  U: 'υ', V: 'v', W: 'w', X: 'ჯ', Y: 'ყ', Z: 'ɀ',
-  a: 'მ', b: 'ზ', c: 'ე', d: 'ძ', e: 'პ', f: 'f', g: 'ც', h: 'h', i: 'í', j: 'ʝ',
-  k: 'κ', l: 'l', m: 'ო', n: 'ղ', o: 'ѻ', p: 'ρ', q: 'გ', r: 'Γ', s: 'ჰ', t: 'ŧ',
-  u: 'υ', v: 'v', w: 'w', x: 'ჯ', y: 'ყ', z: 'ɀ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    
-    }
+  // Gothic
+  document.getElementById("GothicOutput").textContent =
+    text ? toGothic(text) : document.getElementById("GothicOutput").dataset.default;
+}
 
-    function toDoubleStruck(text) {
-      const map = {
-'a': '𝕒', 'b': '𝕓', 'c': '𝕔', 'd': '𝕕', 'e': '𝕖', 'f': '𝕗', 'g': '𝕘', 'h': '𝕙', 
-'i': '𝕚', 'j': '𝕛', 'k': '𝕜', 'l': '𝕝', 'm': '𝕞', 'n': '𝕟', 'o': '𝕠', 'p': '𝕡', 
-'q': '𝕢', 'r': '𝕣', 's': '𝕤', 't': '𝕥', 'u': '𝕦', 'v': '𝕧', 'w': '𝕨', 'x': '𝕩', 
-'y': '𝕪', 'z': '𝕫', 'A': '𝔸', 'B': '𝔹', 'C': 'ℂ', 'D': '𝔻', 'E': '𝔼', 'F': '𝔽', 
-'G': '𝔾', 'H': 'ℍ', 'I': '𝕀', 'J': '𝕁', 'K': '𝕂', 'L': '𝕃', 'M': '𝕄', 'N': 'ℕ', 
-'O': '𝕆', 'P': 'ℙ', 'Q': 'ℚ', 'R': 'ℝ', 'S': '𝕊', 'T': '𝕋', 'U': '𝕌', 'V': '𝕍', 
-'W': '𝕎', 'X': '𝕏', 'Y': '𝕐', 'Z': 'ℤ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    } 
+/* ---------- Input Handling ---------- */
+function handleInputChange() {
+  const input = document.getElementById("userInput");
+  const clearBtn = document.querySelector(".clear-btn");
+  clearBtn.style.display = input.value.trim() !== "" ? "block" : "none";
+  updateText();
+}
+function clearInput() {
+  document.getElementById("userInput").value = "";
+  document.querySelector(".clear-btn").style.display = "none";
+  updateText();
+}
 
-    function toSymbolic(text) {
-      const map = {
-        A: '𖤬', B: 'ꔪ', C: 'ꛕ', D: '𖤀', E: '𖤟', F: 'ꘘ', G: 'ꚽ', H: 'ꛅ', I: 'ꛈ', J: 'ꚠ',
-  K: '𖤰', L: 'ꚳ', M: '𖢑', N: 'ꛘ', O: '𖣠', P: 'ㄗ', Q: 'ꚩ', R: '𖦪', S: 'ꕷ', T: '𖢧',
-  U: 'ꚶ', V: 'ꚴ', W: 'ꛃ', X: '𖤗', Y: 'ꚲ', Z: 'ꛉ',
-  a: '𖤬', b: 'ꔪ', c: 'ꛕ', d: '𖤀', e: '𖤟', f: 'ꘘ', g: 'ꚽ', h: 'ꛅ', i: 'ꛈ', j: 'ꚠ',
-  k: '𖤰', l: 'ꚳ', m: '𖢑', n: 'ꛘ', o: '𖣠', p: 'ㄗ', q: 'ꚩ', r: '𖦪', s: 'ꕷ', t: '𖢧',
-  u: 'ꚶ', v: 'ꚴ', w: 'ꛃ', x: '𖤗', y: 'ꚲ', z: 'ꛉ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-
-    function toIconic (text) {
-      const map = {
-        A: 'ꋬ', B: 'ꃳ', C: 'ꉔ', D: '꒯', E: 'ꏂ', F: 'ꊰ', G: 'ꍌ', H: 'ꁝ', I: '꒐', J: '꒻',
-  K: 'ꀘ', L: '꒒', M: 'ꂵ', N: 'ꋊ', O: 'ꄲ', P: 'ꉣ', Q: 'ꆰ', R: 'ꋪ', S: 'ꇙ', T: '꓄',
-  U: '꒤', V: '꒦', W: 'ꅐ', X: 'ꉧ', Y: 'ꌦ', Z: 'ꁴ',
-  a: 'ꋬ', b: 'ꃳ', c: 'ꉔ', d: '꒯', e: 'ꏂ', f: 'ꊰ', g: 'ꍌ', h: 'ꁝ', i: '꒐', j: '꒻',
-  k: 'ꀘ', l: '꒒', m: 'ꂵ', n: 'ꋊ', o: 'ꄲ', p: 'ꉣ', q: 'ꆰ', r: 'ꋪ', s: 'ꇙ', t: '꓄',
-  u: '꒤', v: '꒦', w: 'ꅐ', x: 'ꉧ', y: 'ꌦ', z: 'ꁴ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-
-    function tofraktur(text) {
-      const map = {
-        A: '𝕬', B: '𝕭', C: '𝕮', D: '𝕯', E: '𝕰', F: '𝕱', G: '𝕲', H: '𝕳', I: '𝕴', J: '𝕵',
-  K: '𝕶', L: '𝕷', M: '𝕸', N: '𝕹', O: '𝕺', P: '𝕻', Q: '𝕼', R: '𝕽', S: '𝕾', T: '𝕿',
-  U: '𝖀', V: '𝖁', W: '𝖂', X: '𝖃', Y: '𝖄', Z: '𝖅',
-  a: '𝖆', b: '𝖇', c: '𝖈', d: '𝖉', e: '𝖊', f: '𝖋', g: '𝖌', h: '𝖍', i: '𝖎', j: '𝖏',
-  k: '𝖐', l: '𝖑', m: '𝖒', n: '𝖓', o: '𝖔', p: '𝖕', q: '𝖖', r: '𝖗', s: '𝖘', t: '𝖙',
-  u: '𝖚', v: '𝖛', w: '𝖜', x: '𝖝', y: '𝖞', z: '𝖟'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-
-    function tobubbles(text) {
-      const map = {
-        A: 'Ⓐ', B: 'Ⓑ', C: 'Ⓒ', D: 'Ⓓ', E: 'Ⓔ', F: 'Ⓕ', G: 'Ⓖ', H: 'Ⓗ', I: 'Ⓘ', J: 'Ⓙ',
-        K: 'Ⓚ', L: 'Ⓛ', M: 'Ⓜ', N: 'Ⓝ', O: 'Ⓞ', P: 'Ⓟ', Q: 'Ⓠ', R: 'Ⓡ', S: 'Ⓢ', T: 'Ⓣ',
-        U: 'Ⓤ', V: 'Ⓥ', W: 'Ⓦ', X: 'Ⓧ', Y: 'Ⓨ', Z: 'Ⓩ',
-        a: 'ⓐ', b: 'ⓑ', c: 'ⓒ', d: 'ⓓ', e: 'ⓔ', f: 'ⓕ', g: 'ⓖ', h: 'ⓗ', i: 'ⓘ', j: 'ⓙ',
-        k: 'ⓚ', l: 'ⓛ', m: 'ⓜ', n: 'ⓝ', o: 'ⓞ', p: 'ⓟ', q: 'ⓠ', r: 'ⓡ', s: 'ⓢ', t: 'ⓣ',
-        u: 'ⓤ', v: 'ⓥ', w: 'ⓦ', x: 'ⓧ', y: 'ⓨ', z: 'ⓩ',
-        0: '⓪', 1: '①', 2: '②', 3: '③', 4: '④', 5: '⑤', 6: '⑥', 7: '⑦', 8: '⑧', 9: '⑨'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-
-    function toetruscan(text) {
-      const map = {
-        A: '𐌀', B: '𐌁', C: '𐌂', D: '𐌃', E: '𐌄', F: '𐌅', G: 'Ᏽ', H: '𐋅', I: '𐌉', J: 'Ꮭ',
-        K: '𐌊', L: '𐌋', M: '𐌌', N: '𐌍', O: 'Ꝋ', P: '𐌐', Q: '𐌒', R: '𐌓', S: '𐌔', T: '𐌕',
-        U: '𐌵', V: 'ᕓ', W: 'Ꮤ', X: '𐋄', Y: '𐌙', Z: 'Ɀ',
-        a: '𐌀', b: '𐌁', c: '𐌂', d: '𐌃', e: '𐌄', f: '𐌅', g: 'Ᏽ', h: '𐋅', i: '𐌉', j: 'Ꮭ',
-        k: '𐌊', l: '𐌋', m: '𐌌', n: '𐌍', o: 'Ꝋ', p: '𐌐', q: '𐌒', r: '𐌓', s: '𐌔', t: '𐌕',
-        u: '𐌵', v: 'ᕓ', w: 'Ꮤ', x: '𐋄', y: '𐌙', z: 'Ɀ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-
-function toPlayful (text) {
-      const map = {
-        A: 'Ą', B: 'Ɓ', C: 'Ƈ', D: 'Đ', E: 'Σ', F: 'Ϝ', G: 'Ɠ', H: 'Ȟ', I: 'Ï', J: 'Ɉ',
-  K: 'Ҡ', L: 'Ƚ', M: 'Ɱ', N: 'Ŋ', O: 'Ø', P: 'Þ', Q: 'Ҩ', R: 'Ʀ', S: 'Ş', T: 'Ŧ',
-  U: 'Ʋ', V: 'Ѵ', W: 'Щ', X: 'Ӿ', Y: 'Ỳ', Z: 'Ẕ',
-
-  a: 'ą', b: 'ɓ', c: 'ƈ', d: 'đ', e: 'ε', f: '∱', g: 'ɠ', h: 'ɧ', i: 'ï', j: 'ʆ',
-  k: 'ҡ', l: 'ℓ', m: 'ɱ', n: 'ŋ', o: 'σ', p: 'þ', q: 'ҩ', r: 'ŗ', s: 'ş', t: 'ŧ',
-  u: 'ų', v: '√', w: 'щ', x: 'х', y: 'γ', z: 'ẕ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-function toWide (text) {
-      const map = {
-        A: 'Ａ', B: 'Ｂ', C: 'Ｃ', D: 'Ｄ', E: 'Ｅ', F: 'Ｆ', G: 'Ｇ', H: 'Ｈ', I: 'Ｉ', J: 'Ｊ',
-  K: 'Ｋ', L: 'Ｌ', M: 'Ｍ', N: 'Ｎ', O: 'Ｏ', P: 'Ｐ', Q: 'Ｑ', R: 'Ｒ', S: 'Ｓ', T: 'Ｔ',
-  U: 'Ｕ', V: 'Ｖ', W: 'Ｗ', X: 'Ｘ', Y: 'Ｙ', Z: 'Ｚ',
-
-  a: 'ａ', b: 'ｂ', c: 'ｃ', d: 'ｄ', e: 'ｅ', f: 'ｆ', g: 'ｇ', h: 'ｈ', i: 'ｉ', j: 'ｊ',
-  k: 'ｋ', l: 'ｌ', m: 'ｍ', n: 'ｎ', o: 'ｏ', p: 'ｐ', q: 'ｑ', r: 'ｒ', s: 'ｓ', t: 'ｔ',
-  u: 'ｕ', v: 'ｖ', w: 'ｗ', x: 'ｘ', y: 'ｙ', z: 'ｚ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-function toMonospace (text) {
-      const map = {
-         A: '𝙰', B: '𝙱', C: '𝙲', D: '𝙳', E: '𝙴', F: '𝙵', G: '𝙶', H: '𝙷', I: '𝙸', J: '𝙹',
-  K: '𝙺', L: '𝙻', M: '𝙼', N: '𝙽', O: '𝙾', P: '𝙿', Q: '𝚀', R: '𝚁', S: '𝚂', T: '𝚃',
-  U: '𝚄', V: '𝚅', W: '𝚆', X: '𝚇', Y: '𝚈', Z: '𝚉',
-
-  a: '𝚊', b: '𝚋', c: '𝚌', d: '𝚍', e: '𝚎', f: '𝚏', g: '𝚐', h: '𝚑', i: '𝚒', j: '𝚓',
-  k: '𝚔', l: '𝚕', m: '𝚖', n: '𝚗', o: '𝚘', p: '𝚙', q: '𝚚', r: '𝚛', s: '𝚜', t: '𝚝',
-  u: '𝚞', v: '𝚟', w: '𝚠', x: '𝚡', y: '𝚢', z: '𝚣'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-function toBold (text) {
-      const map = {
-         A: '𝐀', B: '𝐁', C: '𝐂', D: '𝐃', E: '𝐄', F: '𝐅', G: '𝐆', H: '𝐇', I: '𝐈', J: '𝐉',
-  K: '𝐊', L: '𝐋', M: '𝐌', N: '𝐍', O: '𝐎', P: '𝐏', Q: '𝐐', R: '𝐑', S: '𝐒', T: '𝐓',
-  U: '𝐔', V: '𝐕', W: '𝐖', X: '𝐗', Y: '𝐘', Z: '𝐙',
-
-  a: '𝐚', b: '𝐛', c: '𝐜', d: '𝐝', e: '𝐞', f: '𝐟', g: '𝐠', h: '𝐡', i: '𝐢', j: '𝐣',
-  k: '𝐤', l: '𝐥', m: '𝐦', n: '𝐧', o: '𝐨', p: '𝐩', q: '𝐪', r: '𝐫', s: '𝐬', t: '𝐭',
-  u: '𝐮', v: '𝐯', w: '𝐰', x: '𝐱', y: '𝐲', z: '𝐳'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-
-function toItalic (text) {
-      const map = {
-        A: '𝘈', B: '𝘉', C: '𝘊', D: '𝘋', E: '𝘌', F: '𝘍', G: '𝘎', H: '𝘏', I: '𝘐', J: '𝘑',
-  K: '𝘒', L: '𝘓', M: '𝘔', N: '𝘕', O: '𝘖', P: '𝘗', Q: '𝘘', R: '𝘙', S: '𝘚', T: '𝘛',
-  U: '𝘜', V: '𝘝', W: '𝘞', X: '𝘟', Y: '𝘠', Z: '𝘡',
-
-  a: '𝘢', b: '𝘣', c: '𝘤', d: '𝘥', e: '𝘦', f: '𝘧', g: '𝘨', h: '𝘩', i: '𝘪', j: '𝘫',
-  k: '𝘬', l: '𝘭', m: '𝘮', n: '𝘯', o: '𝘰', p: '𝘱', q: '𝘲', r: '𝘳', s: '𝘴', t: '𝘵',
-  u: '𝘶', v: '𝘷', w: '𝘸', x: '𝘹', y: '𝘺', z: '𝘻'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-function toBoldItalic (text) {
-      const map = {
-         A: '𝑨', B: '𝑩', C: '𝑪', D: '𝑫', E: '𝑬', F: '𝑭', G: '𝑮', H: '𝑯', I: '𝑰', J: '𝑱',
-  K: '𝑲', L: '𝑳', M: '𝑴', N: '𝑵', O: '𝑶', P: '𝑷', Q: '𝑸', R: '𝑹', S: '𝑺', T: '𝑻',
-  U: '𝑼', V: '𝑽', W: '𝑾', X: '𝑿', Y: '𝒀', Z: '𝒁',
-
-  a: '𝒂', b: '𝒃', c: '𝒄', d: '𝒅', e: '𝒆', f: '𝒇', g: '𝒈', h: '𝒉', i: '𝒊', j: '𝒋',
-  k: '𝒌', l: '𝒍', m: '𝒎', n: '𝒏', o: '𝒐', p: '𝒑', q: '𝒒', r: '𝒓', s: '𝒔', t: '𝒕',
-  u: '𝒖', v: '𝒗', w: '𝒘', x: '𝒙', y: '𝒚', z: '𝒛'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-function toSansSerifBold (text) {
-      const map = {
-       A: '𝗔', B: '𝗕', C: '𝗖', D: '𝗗', E: '𝗘', F: '𝗙', G: '𝗚', H: '𝗛', I: '𝗜', J: '𝗝',
-  K: '𝗞', L: '𝗟', M: '𝗠', N: '𝗡', O: '𝗢', P: '𝗣', Q: '𝗤', R: '𝗥', S: '𝗦', T: '𝗧',
-  U: '𝗨', V: '𝗩', W: '𝗪', X: '𝗫', Y: '𝗬', Z: '𝗭',
-
-  a: '𝗮', b: '𝗯', c: '𝗰', d: '𝗱', e: '𝗲', f: '𝗳', g: '𝗴', h: '𝗵', i: '𝗶', j: '𝗷',
-  k: '𝗸', l: '𝗹', m: '𝗺', n: '𝗻', o: '𝗼', p: '𝗽', q: '𝗾', r: '𝗿', s: '𝘀', t: '𝘁',
-  u: '𝘂', v: '𝘃', w: '𝘄', x: '𝘅', y: '𝘆', z: '𝘇'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-function toSansSerif (text) {
-      const map = {
-         A: '𝖠', B: '𝖡', C: '𝖢', D: '𝖣', E: '𝖤', F: '𝖥', G: '𝖦', H: '𝖧', I: '𝖨', J: '𝖩',
-  K: '𝖪', L: '𝖫', M: '𝖬', N: '𝖭', O: '𝖮', P: '𝖯', Q: '𝖰', R: '𝖱', S: '𝖲', T: '𝖳',
-  U: '𝖴', V: '𝖵', W: '𝖶', X: '𝖷', Y: '𝖸', Z: '𝖹',
-
-  a: '𝖺', b: '𝖻', c: '𝖼', d: '𝖽', e: '𝖾', f: '𝖿', g: '𝗀', h: '𝗁', i: '𝗂', j: '𝗃',
-  k: '𝗄', l: '𝗅', m: '𝗆', n: '𝗇', o: '𝗈', p: '𝗉', q: '𝗊', r: '𝗋', s: '𝗌', t: '𝗍',
-  u: '𝗎', v: '𝗏', w: '𝗐', x: '𝗑', y: '𝗒', z: '𝗓'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-function toSansSerifItalic (text) {
-      const map = {
-         A: '𝘈', B: '𝘉', C: '𝘊', D: '𝘋', E: '𝘌', F: '𝘍', G: '𝘎', H: '𝘏', I: '𝘐', J: '𝘑',
-  K: '𝘒', L: '𝘓', M: '𝘔', N: '𝘕', O: '𝘖', P: '𝘗', Q: '𝘘', R: '𝘙', S: '𝘚', T: '𝘛',
-  U: '𝘜', V: '𝘝', W: '𝘞', X: '𝘟', Y: '𝘠', Z: '𝘡',
-
-  a: '𝘢', b: '𝘣', c: '𝘤', d: '𝘥', e: '𝘦', f: '𝘧', g: '𝘨', h: '𝘩', i: '𝘪', j: '𝘫',
-  k: '𝘬', l: '𝘭', m: '𝘮', n: '𝘯', o: '𝘰', p: '𝘱', q: '𝘲', r: '𝘳', s: '𝘴', t: '𝘵',
-  u: '𝘶', v: '𝘷', w: '𝘸', x: '𝘹', y: '𝘺', z: '𝘻'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-function toSansSerifBoldItalic (text) {
-      const map = {
-       A: '𝘼', B: '𝘽', C: '𝘾', D: '𝘿', E: '𝙀', F: '𝙁', G: '𝙂', H: '𝙃', I: '𝙄', J: '𝙅',
-  K: '𝙆', L: '𝙇', M: '𝙈', N: '𝙉', O: '𝙊', P: '𝙋', Q: '𝙌', R: '𝙍', S: '𝙎', T: '𝙏',
-  U: '𝙐', V: '𝙑', W: '𝙒', X: '𝙓', Y: '𝙔', Z: '𝙕',
-
-  a: '𝙖', b: '𝙗', c: '𝙘', d: '𝙙', e: '𝙚', f: '𝙛', g: '𝙜', h: '𝙝', i: '𝙞', j: '𝙟',
-  k: '𝙠', l: '𝙡', m: '𝙢', n: '𝙣', o: '𝙤', p: '𝙥', q: '𝙦', r: '𝙧', s: '𝙨', t: '𝙩',
-  u: '𝙪', v: '𝙫', w: '𝙬', x: '𝙭', y: '𝙮', z: '𝙯'
-
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-function toSmallCapital (text) {
-      const map = {
-       A: 'ᴀ', B: 'ʙ', C: 'ᴄ', D: 'ᴅ', E: 'ᴇ', F: 'ꜰ', G: 'ɢ', H: 'ʜ', I: 'ɪ', J: 'ᴊ',
-  K: 'ᴋ', L: 'ʟ', M: 'ᴍ', N: 'ɴ', O: 'ᴏ', P: 'ᴘ', Q: 'q', R: 'ʀ', S: 'ꜱ', T: 'ᴛ',
-  U: 'ᴜ', V: 'ᴠ', W: 'ᴡ', X: 'x', Y: 'ʏ', Z: 'ᴢ',
-  a: 'ᴀ', b: 'ʙ', c: 'ᴄ', d: 'ᴅ', e: 'ᴇ', f: 'ꜰ', g: 'ɢ', h: 'ʜ', i: 'ɪ', j: 'ᴊ',
-  k: 'ᴋ', l: 'ʟ', m: 'ᴍ', n: 'ɴ', o: 'ᴏ', p: 'ᴘ', q: 'q', r: 'ʀ', s: 'ꜱ', t: 'ᴛ',
-  u: 'ᴜ', v: 'ᴠ', w: 'ᴡ', x: 'x', y: 'ʏ', z: 'ᴢ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-function toBoldCursive (text) {
-      const map = {
-        A: '𝓐', B: '𝓑', C: '𝓒', D: '𝓓', E: '𝓔', F: '𝓕', G: '𝓖', H: '𝓗', I: '𝓘', J: '𝓙',
-  K: '𝓚', L: '𝓛', M: '𝓜', N: '𝓝', O: '𝓞', P: '𝓟', Q: '𝓠', R: '𝓡', S: '𝓢', T: '𝓣',
-  U: '𝓤', V: '𝓥', W: '𝓦', X: '𝓧', Y: '𝓨', Z: '𝓩',
-  a: '𝓪', b: '𝓫', c: '𝓬', d: '𝓭', e: '𝓮', f: '𝓯', g: '𝓰', h: '𝓱', i: '𝓲', j: '𝓳',
-  k: '𝓴', l: '𝓵', m: '𝓶', n: '𝓷', o: '𝓸', p: '𝓹', q: '𝓺', r: '𝓻', s: '𝓼', t: '𝓽',
-  u: '𝓾', v: '𝓿', w: '𝔀', x: '𝔁', y: '𝔂', z: '𝔃'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-
-    function toblocktext (text) {
-      const map = {
-          A: '🄰', B: '🄱', C: '🄲', D: '🄳', E: '🄴', F: '🄵', G: '🄶', H: '🄷', I: '🄸', J: '🄹',
-  K: '🄺', L: '🄻', M: '🄼', N: '🄽', O: '🄾', P: '🄿', Q: '🅀', R: '🅁', S: '🅂', T: '🅃',
-  U: '🅄', V: '🅅', W: '🅆', X: '🅇', Y: '🅈', Z: '🅉',
-
-  a: '🄰', b: '🄱', c: '🄲', d: '🄳', e: '🄴', f: '🄵', g: '🄶', h: '🄷', i: '🄸', j: '🄹',
-  k: '🄺', l: '🄻', m: '🄼', n: '🄽', o: '🄾', p: '🄿', q: '🅀', r: '🅁', s: '🅂', t: '🅃',
-  u: '🅄', v: '🅅', w: '🅆', x: '🅇', y: '🅈', z: '🅉'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-function toAsianFont (text) {
-      const map = {
-         A: '卂', B: '乃', C: '匚', D: 'ᗪ', E: '乇', F: '千', G: 'Ꮆ', H: '卄', I: '丨',
-  J: 'ﾌ', K: 'Ҝ', L: 'ㄥ', M: '爪', N: '几', O: 'ㄖ', P: '卩', Q: '디', R: '尺',
-  S: '丂', T: '丁', U: 'ㄩ', V: 'ᐯ', W: '山', X: '乂', Y: 'ㄚ', Z: '乙',
-
-  a: '卂', b: '乃', c: '匚', d: 'ᗪ', e: '乇', f: '千', g: 'Ꮆ', h: '卄', i: '丨',
-  j: 'ﾌ', k: 'Ҝ', l: 'ㄥ', m: '爪', n: '几', o: 'ㄖ', p: '卩', q: '디', r: '尺',
-  s: '丂', t: '丁', u: 'ㄩ', v: 'ᐯ', w: '山', x: '乂', y: 'ㄚ', z: '乙'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-    
-function toDualCurve (text) {
-      const map = {
-         A: 'A͜͡', B: 'B͜͡', C: 'C͜͡', D: 'D͜͡', E: 'E͜͡', F: 'F͜͡', G: 'G͜͡', H: 'H͜͡', I: 'I͜͡',
-  J: 'J͜͡', K: 'K͜͡', L: 'L͜͡', M: 'M͜͡', N: 'N͜͡', O: 'O͜͡', P: 'P͜͡', Q: 'Q͜͡', R: 'R͜͡',
-  S: 'S͜͡', T: 'T͜͡', U: 'U͜͡', V: 'V͜͡', W: 'W͜͡', X: 'X͜͡', Y: 'Y͜͡', Z: 'Z͜͡',
-
-  a: 'a͜͡', b: 'b͜͡', c: 'c͜͡', d: 'd͜͡', e: 'e͜͡', f: 'f͜͡', g: 'g͜͡', h: 'h͜͡', i: 'i͜͡',
-  j: 'j͜͡', k: 'k͜͡', l: 'l͜͡', m: 'm͜͡', n: 'n͜͡', o: 'o͜͡', p: 'p͜͡', q: 'q͜͡', r: 'r͜͡',
-  s: 's͜͡', t: 't͜͡', u: 'u͜͡', v: 'v͜͡', w: 'w͜͡', x: 'x͜͡', y: 'y͜͡', z: 'z͜͡'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-function toModerntext (text) {
-      const map = {
-        A: 'ƛ', B: 'Ɓ', C: 'Ƈ', D: 'Ɗ', E: 'Є', F: 'Ƒ', G: 'Ɠ', H: 'Ӈ',
-  I: 'Ɩ', J: 'ʆ', K: 'Ҡ', L: 'Լ', M: 'M', N: 'Ɲ', O: 'Ơ', P: 'Ƥ',
-  Q: 'Ƣ', R: 'Ʀ', S: 'Ƨ', T: 'Ƭ', U: 'Ʋ', V: 'ᐯ', W: 'Ɯ', X: 'Ҳ',
-  Y: 'Ꭹ', Z: 'Ȥ',
-
-  a: 'ƛ', b: 'Ɓ', c: 'Ƈ', d: 'Ɗ', e: 'Є', f: 'Ƒ', g: 'Ɠ', h: 'Ӈ',
-  i: 'Ɩ', j: 'ʆ', k: 'Ҡ', l: 'Լ', m: 'M', n: 'Ɲ', o: 'Ơ', p: 'Ƥ',
-  q: 'Ƣ', r: 'Ʀ', s: 'Ƨ', t: 'Ƭ', u: 'Ʋ', v: 'ᐯ', w: 'Ɯ', x: 'Ҳ',
-  y: 'Ꭹ', z: 'Ȥ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-
-function toPrimeFont (text) {
-      const map = {
-       A: 'Λ', B: 'ß', C: '₵', D: 'Đ', E: 'Ξ', F: 'Ŧ', G: '₲', H: 'Η',
-  I: 'Ϊ', J: 'Ɉ', K: 'Ҝ', L: 'Ł', M: 'Μ', N: 'Ͷ', O: 'Θ', P: 'Ρ',
-  Q: 'Ҩ', R: 'Я', S: 'Ϟ', T: 'Ͳ', U: 'Ʊ', V: 'Ѵ', W: 'Ψ', X: 'Ӿ',
-  Y: 'Ϥ', Z: 'Ẕ',
-
-  a: 'α', b: 'ɓ', c: '૮', d: '∂', e: 'ε', f: 'ƒ', g: 'ɠ', h: 'ɦ',
-  i: 'เ', j: 'ʝ', k: 'ҡ', l: 'ℓ', m: 'ɱ', n: 'ɳ', o: 'σ', p: 'ρ',
-  q: 'φ', r: '૨', s: 'ร', t: 'ƭ', u: 'µ', v: 'ѵ', w: 'ω', x: 'א',
-  y: 'ყ', z: 'ƶ'
-      };
-      return [...text].map(c => map[c] || c).join('');
-    }
-
-
-
-    function updateText() {
-      const input = document.getElementById("userInput").value.trim();
-      const text = input || defaultInput;
-      
-      document.getElementById("CursiveOutput").textContent = input ? toCursive(text) : document.getElementById("CursiveOutput").dataset.default;
-      document.getElementById("HistoricalOutput").textContent = input ? toHistorical(text) : document.getElementById("HistoricalOutput").dataset.default;
-      document.getElementById("GothicOutput").textContent = input ? toGothic(text) : document.getElementById("GothicOutput").dataset.default;
-      document.getElementById("RoundedOutput").textContent = input ? toRounded(text) : document.getElementById("RoundedOutput").dataset.default;
-      document.getElementById("VintageOutput").textContent = input ? toVintage(text) : document.getElementById("VintageOutput").dataset.default;
-      document.getElementById("TribalOutput").textContent = input ? toTribal(text) : document.getElementById("TribalOutput").dataset.default;
-      document.getElementById("GracefulOutput").textContent = input ? toGraceful(text) : document.getElementById("GracefulOutput").dataset.default;
-      document.getElementById("DoubleStruckOutput").textContent = input ? toDoubleStruck(text) : document.getElementById("DoubleStruckOutput").dataset.default;
-      document.getElementById("SymbolicOutput").textContent = input ? toSymbolic(text) : document.getElementById("SymbolicOutput").dataset.default;
-      document.getElementById("IconicOutput").textContent = input ? toIconic (text) : document.getElementById("IconicOutput").dataset.default;
-      document.getElementById("frakturOutput").textContent = input ? tofraktur(text) : document.getElementById("frakturOutput").dataset.default;
-      document.getElementById("bubbleOutput").textContent = input ? tobubbles(text) : document.getElementById("bubbleOutput").dataset.default;
-      document.getElementById("etruscanOutput").textContent = input ? toetruscan(text) : document.getElementById("etruscanOutput").dataset.default;
-      document.getElementById("PlayfulOutput").textContent = input ? toPlayful (text) : document.getElementById("PlayfulOutput").dataset.default;
-      document.getElementById("WideOutput").textContent = input ? toWide (text) : document.getElementById("WideOutput").dataset.default;
-      document.getElementById("MonospaceOutput").textContent = input ? toMonospace (text) : document.getElementById("MonospaceOutput").dataset.default;
-      document.getElementById("BoldOutput").textContent = input ? toBold (text) : document.getElementById("BoldOutput").dataset.default;
-      document.getElementById("ItalicOutput").textContent = input ? toItalic (text) : document.getElementById("ItalicOutput").dataset.default;
-      document.getElementById("BoldItalicOutput").textContent = input ? toBoldItalic (text) : document.getElementById("BoldItalicOutput").dataset.default;
-      document.getElementById("SansSerifBoldOutput").textContent = input ? toSansSerifBold (text) : document.getElementById("SansSerifBoldOutput").dataset.default;
-      document.getElementById("SansSerifOutput").textContent = input ? toSansSerif (text) : document.getElementById("SansSerifOutput").dataset.default;
-      document.getElementById("SansSerifItalicOutput").textContent = input ? toSansSerifItalic (text) : document.getElementById("SansSerifItalicOutput").dataset.default;
-      document.getElementById("SansSerifBoldItalicOutput").textContent = input ? toSansSerifBoldItalic (text) : document.getElementById("SansSerifBoldItalicOutput").dataset.default;
-      document.getElementById("SmallCapitalOutput").textContent = input ? toSmallCapital (text) : document.getElementById("SmallCapitalOutput").dataset.default;
-      document.getElementById("BoldCursiveOutput").textContent = input ? toBoldCursive (text) : document.getElementById("BoldCursiveOutput").dataset.default;
-      document.getElementById("blocktextOutput").textContent = input ? toblocktext (text) : document.getElementById("blocktextOutput").dataset.default;
-      document.getElementById("AsianFontOutput").textContent = input ? toAsianFont (text) : document.getElementById("AsianFontOutput").dataset.default;
-      document.getElementById("DualCurveOutput").textContent = input ? toDualCurve (text) : document.getElementById("DualCurveOutput").dataset.default;
-      document.getElementById("ModerntextOutput").textContent = input ? toModerntext (text) : document.getElementById("ModerntextOutput").dataset.default;
-      document.getElementById("PrimeFontOutput").textContent = input ? toPrimeFont (text) : document.getElementById("PrimeFontOutput").dataset.default;
-
-    }
-
-    function handleInputChange() {
-      const input = document.getElementById("userInput");
-      const clearBtn = document.querySelector(".clear-btn");
-
-      clearBtn.style.display = input.value.trim() !== "" ? "block" : "none";
-      updateText();
-    }
-
-    function clearInput() {
-      const input = document.getElementById("userInput");
-      input.value = "";
-      document.querySelector(".clear-btn").style.display = "none";
-      updateText();
-    }
-
-    function copyToClipboard(elementId) {
-      const text = document.getElementById(elementId).textContent;
-      navigator.clipboard.writeText(text).then(() => {
-        showCopyNotification("Copied: " + text);
-      });
-    }
-
-    function showCopyNotification(message) {
-      const notification = document.getElementById("copyNotification");
-      notification.textContent = message;
-      notification.style.display = 'block';
-      setTimeout(() => {
-        notification.style.display = 'none';
-      }, 2000);
-    }
-
-    window.onload = () => {
-      updateText();
-      handleInputChange();
-    };
-    
-    
-  </script>
-  
-  <script>
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-      document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
-      this.classList.add('active');
-    });
+/* ---------- Copy to Clipboard ---------- */
+function copyToClipboard(elementId) {
+  const text = document.getElementById(elementId).textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    showCopyNotification("Copied: " + text);
   });
+}
+function showCopyNotification(message) {
+  const notification = document.getElementById("copyNotification");
+  notification.textContent = message;
+  notification.style.display = 'block';
+  setTimeout(() => { notification.style.display = 'none'; }, 2000);
+}
+
+/* ---------- On Load ---------- */
+document.addEventListener("DOMContentLoaded", function() {
+  // Add SVG icon to all copy buttons
+  const svgIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+   viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+   stroke-linecap="round" stroke-linejoin="round" class="feather feather-copy"
+   style="vertical-align:middle;margin-right:6px;">
+   <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+   <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>`;
+  document.querySelectorAll('.copy-btn').forEach(btn=>{
+    if (!btn.querySelector('svg')) btn.insertAdjacentHTML('afterbegin', svgIcon);
+  });
+
+  // Prefill input if cookie exists
+  const saved = getCookie("userInput");
+  if (saved) document.getElementById("userInput").value = saved;
+
+  updateText();
+});
 </script>
- <script>
-    const backToTopBtn = document.getElementById('backToTopBtn');
-
-    window.onscroll = function () {
-      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        backToTopBtn.style.display = 'flex';
-      } else {
-        backToTopBtn.style.display = 'none';
-      }
-    };
-
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
-  </script>
-
-
 </body>
 </html>
