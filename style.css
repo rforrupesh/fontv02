@@ -1,9 +1,22 @@
 /* ---------- Base ---------- */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   padding: 20px;
-  background: #fafafa;
+  background: linear-gradient(135deg, #f9f9f9, #eef2f7);
   color: #333;
+  max-width: 700px;
+  margin: auto;
+}
+
+h1 {
+  margin-bottom: 5px;
+  font-size: 28px;
+  color: #222;
+}
+
+p {
+  color: #666;
+  margin-bottom: 20px;
 }
 
 /* ---------- Input Box ---------- */
@@ -11,28 +24,31 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 #userInput {
-  padding: 12px 40px 12px 14px;
+  padding: 14px 44px 14px 16px;
   font-size: 16px;
-  width: 320px;
+  width: 100%;
+  max-width: 420px;
   border: 1px solid #ccc;
-  border-radius: 10px;
+  border-radius: 12px;
   outline: none;
-  transition: border 0.2s, box-shadow 0.2s;
+  background: #fff;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
 #userInput:focus {
   border-color: #007bff;
-  box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,123,255,0.25);
 }
 
 .clear-btn {
   display: none;
   position: absolute;
-  right: 12px;
+  right: 14px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
@@ -49,7 +65,7 @@ body {
 .tab-nav {
   display: flex;
   overflow-x: auto;
-  margin: 10px 0 20px;
+  margin: 15px 0 25px;
   padding: 6px 0;
   border-bottom: 2px solid #eee;
   scrollbar-width: none;
@@ -58,27 +74,30 @@ body {
 
 .tab-link {
   flex: 0 0 auto;
-  padding: 10px 18px;
-  margin-right: 8px;
+  padding: 10px 20px;
+  margin-right: 10px;
   border-radius: 8px 8px 0 0;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-  color: #444;
-  background: #f7f7f7;
+  color: #555;
+  background: #f3f4f6;
   border: 1px solid #ddd;
   border-bottom: none;
-  transition: background 0.2s, color 0.2s;
+  transition: all 0.25s;
 }
+
 .tab-link:hover {
-  background: #eaeaea;
+  background: #e1e5ea;
   color: #000;
 }
+
 .tab-link.active {
   background: #fff;
   border-bottom: 2px solid #fff;
   color: #007BFF;
   font-weight: bold;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
 }
 
 /* ---------- Output Boxes ---------- */
@@ -88,16 +107,16 @@ body {
   justify-content: space-between;
   background: #fff;
   border: 1px solid #ddd;
-  border-radius: 12px;
-  padding: 14px 16px;
-  margin: 12px 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 14px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .output-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
 .text-content {
@@ -108,47 +127,51 @@ body {
 
 .output-text {
   font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 4px;
+  font-weight: 600;
+  margin-bottom: 6px;
   word-break: break-word;
+  color: #222;
 }
 
 .style-name {
   font-size: 14px;
-  color: #666;
+  color: #777;
 }
 
 /* ---------- Copy Button ---------- */
 .copy-btn {
   cursor: pointer;
-  background: none;
+  background: #f0f2f5;
   border: none;
   font-size: 18px;
-  padding: 8px;
-  border-radius: 8px;
-  transition: background 0.2s, transform 0.1s;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.25s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .copy-btn:hover {
-  background: #f0f0f0;
+  background: #007bff;
+  color: #fff;
   transform: scale(1.05);
+  box-shadow: 0 3px 8px rgba(0,123,255,0.25);
 }
 
 /* ---------- Copy Notification ---------- */
 #copyNotification {
   display: none;
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 25px;
+  left: 25px;
   background: #333;
   color: #fff;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-size: 14px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   animation: fadeSlide 0.3s ease forwards;
   z-index: 9999;
 }
@@ -156,7 +179,7 @@ body {
 @keyframes fadeSlide {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(25px);
   }
   to {
     opacity: 1;
