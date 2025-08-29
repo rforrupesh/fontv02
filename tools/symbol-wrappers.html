@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Font Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #fafafa;
+    }
+
+    h1 { margin-bottom: 5px; }
+    p { color: #555; }
+
+    .input-container {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    #userInput {
+      padding: 10px;
+      font-size: 16px;
+      width: 280px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .clear-btn {
+      display: none;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      color: #888;
+    }
+
+    .output-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 12px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .text-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .output-text {
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      word-break: break-word;
+    }
+
+    .style-name {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .copy-btn {
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #444;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    #copyNotification {
+      display: none;
+      margin-top: 12px;
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Font Generator</h1>
+  <p>Type text and copy it in different styles.</p>
+
+  <div class="input-container">
+    <input type="text" id="userInput" placeholder="Type something..." oninput="handleInputChange()" />
+    <span class="clear-btn" onclick="clearInput()">×</span>
+  </div>
+
+ 
+
+  <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>
+
+  <div id="copyNotification"></div>
+
+
+</body>
+</html>
