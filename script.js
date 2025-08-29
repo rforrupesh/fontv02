@@ -119,3 +119,39 @@ window.onload = function () {
     updateOutputs(saved || "");
   }
 };
+// Copy to Clipboard function
+function copyToClipboard(elementId) {
+  const text = document.getElementById(elementId).innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    showCopyNotification("Copied!");
+  });
+}
+
+// Show notification
+function showCopyNotification(message) {
+  const notification = document.getElementById("copyNotification");
+  if (!notification) return; // In case it's not on some pages
+  notification.innerText = message;
+  notification.style.display = "block";
+  setTimeout(() => {
+    notification.style.display = "none";
+  }, 2000);
+}
+
+// ✅ Auto-add SVG icon to all copy buttons
+document.addEventListener("DOMContentLoaded", () => {
+  const svgIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" 
+         fill="currentColor" viewBox="0 0 24 24">
+      <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 
+               0-2 .9-2 2v16c0 1.1.9 2 2 2h11c1.1 0 
+               2-.9 2-2V7c0-1.1-.9-2-2-2zm0 
+               18H8V7h11v16z"/>
+    </svg>
+  `;
+
+  document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.innerHTML = svgIcon;
+  });
+});
+
