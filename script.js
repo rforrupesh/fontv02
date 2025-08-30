@@ -56,48 +56,74 @@ function toCurlyWrap(text) {
 }
 
 // ---------- Update Outputs ----------
+/**
+ * Updates the styled output elements.
+ * If text is provided, it applies the style to the text.
+ * If text is empty, it shows the default styled words.
+ */
 function updateOutputs(text) {
   // Cursive
   const cursiveEl = document.getElementById("CursiveOutput");
   if (cursiveEl) {
-    cursiveEl.textContent = text ? toCursive(text) : cursiveEl.dataset.default;
+    cursiveEl.textContent = text ? toCursive(text) : "𝒞𝓊𝓇𝓈𝒾𝓋ℯ";
   }
 
   // Gothic
   const gothicEl = document.getElementById("GothicOutput");
   if (gothicEl) {
-    gothicEl.textContent = text ? toGothic(text) : gothicEl.dataset.default;
+    gothicEl.textContent = text ? toGothic(text) : "𝔊𝔬𝔱𝔥𝔦𝔠";
   }
 
   // Curly Wrap
   const curlyEl = document.getElementById("CurlyOutput");
   if (curlyEl) {
-    curlyEl.textContent = text ? toCurlyWrap(text) : curlyEl.dataset.default;
+    curlyEl.textContent = text ? toCurlyWrap(text) : "⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱";
   }
 }
 
 // ---------- Input Handling ----------
+/**
+ * Handles the input event on the text field.
+ * Updates styles based on user input or placeholder text.
+ */
 function handleInputChange() {
   const input = document.getElementById("userInput");
   if (!input) return;
 
-  const value = input.value.trim();
+  const value = input.value; // No trim here, to allow spaces
+  const clearBtn = document.querySelector(".clear-btn");
+
   if (value) {
+    // If there is text in the input, style it
     setCookie("fontInput", value, 7);
     updateOutputs(value);
-    document.querySelector(".clear-btn").style.display = "inline";
+    if (clearBtn) clearBtn.style.display = "inline";
   } else {
-    clearInput();
+    // If input is empty, revert to styling the placeholder
+    deleteCookie("fontInput");
+    const placeholderText = input.getAttribute("placeholder");
+
+    if (placeholderText && placeholderText !== "Type something...") {
+      // It's a custom placeholder, so style it
+      updateOutputs(placeholderText);
+    } else {
+      // It's the default placeholder, show default styled text
+      updateOutputs("");
+    }
+    if (clearBtn) clearBtn.style.display = "none";
   }
 }
 
+/**
+ * Clears the input field and resets the view.
+ */
 function clearInput() {
   const input = document.getElementById("userInput");
-  if (input) input.value = "";
-  deleteCookie("fontInput");
-  updateOutputs("");
-  const clearBtn = document.querySelector(".clear-btn");
-  if (clearBtn) clearBtn.style.display = "none";
+  if (input) {
+    input.value = "";
+  }
+  // Trigger the input change handler to reset the state correctly
+  handleInputChange();
 }
 
 // ---------- Copy Handling ----------
@@ -132,22 +158,39 @@ function addCopyIcons() {
 }
 
 // ---------- On Page Load ----------
+/**
+ * Initializes the page state when the content is loaded.
+ * It checks for saved cookies or custom placeholders to set the initial text style.
+ */
 window.addEventListener("DOMContentLoaded", () => {
   const saved = getCookie("fontInput");
   const input = document.getElementById("userInput");
+  const clearBtn = document.querySelector(".clear-btn");
 
   if (input) {
-    // Pages WITH input box
+    // This logic runs for pages that have the main input box
     if (saved) {
+      // If a cookie exists, prioritize it
       input.value = saved;
       updateOutputs(saved);
-      document.querySelector(".clear-btn").style.display = "inline";
+      if (clearBtn) clearBtn.style.display = "inline";
     } else {
-      updateOutputs("");
+      // If no cookie, check the placeholder
+      const placeholderText = input.getAttribute("placeholder");
+      if (placeholderText && placeholderText !== "Type something...") {
+        // Style the custom placeholder text
+        updateOutputs(placeholderText);
+      } else {
+        // Show default styled text
+        updateOutputs("");
+      }
+      if (clearBtn) clearBtn.style.display = "none";
     }
   } else {
-    // Pages WITHOUT input box (like Symbol Wrappers)
-    if (saved) updateOutputs(saved);
+    // This is a fallback for pages without an input box
+    if (saved) {
+      updateOutputs(saved);
+    }
   }
 
   addCopyIcons();
