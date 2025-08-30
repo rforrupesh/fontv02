@@ -8,7 +8,7 @@ body {
 h1 { margin-bottom: 5px; font-size: 26px; }
 p { color: #555; margin-bottom: 20px; }
 
-/* ---------- Search Section ---------- */
+/* ---------- Search Section (input + tabs together) ---------- */
 .search-section {
   background: #fff;
   border: 1px solid #ddd;
@@ -39,7 +39,7 @@ p { color: #555; margin-bottom: 20px; }
 #userInput:focus {
   background: #fff;
   border-color: #4285f4;
-  box-shadow: 0 0 10px rgba(66,133,244,0.6);
+  box-shadow: 0 2px 8px rgba(66,133,244,0.25);
 }
 
 .clear-btn {
@@ -55,7 +55,7 @@ p { color: #555; margin-bottom: 20px; }
 }
 .clear-btn:hover { color: #333; }
 
-/* ---------- Tabs ---------- */
+/* ---------- Tabs (Google-like) ---------- */
 .tab-nav {
   display: flex;
   overflow-x: auto;
@@ -74,13 +74,12 @@ p { color: #555; margin-bottom: 20px; }
   color: #555;
   text-decoration: none;
   border-radius: 6px;
-  transition: all 0.25s ease;
+  transition: background 0.2s, color 0.2s;
 }
 
 .tab-link:hover {
   background: #f1f3f4;
   color: #000;
-  box-shadow: 0 0 6px rgba(66,133,244,0.4);
 }
 
 
@@ -96,12 +95,12 @@ p { color: #555; margin-bottom: 20px; }
   padding: 14px 16px;
   margin: 12px 0;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .output-box:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 12px rgba(66,133,244,0.35);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .text-content {
@@ -121,47 +120,73 @@ p { color: #555; margin-bottom: 20px; }
   color: #666;
 }
 
-/* ---------- Copy Button (Glow on hover) ---------- */
+/* ---------- Copy Button (CSS Icon with Glow) ---------- */
 .copy-btn {
   cursor: pointer;
-  background: #4285f4;
+  background: none;
   border: none;
-  font-size: 16px;
-  padding: 8px 14px;
-  border-radius: 8px;
-  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.25s ease;
   display: flex;
   align-items: center;
-  transition: all 0.25s ease;
-  box-shadow: 0 0 6px rgba(66,133,244,0.3);
+  position: relative;
+  width: 24px;
+  height: 24px;
 }
 
+.copy-btn::before,
+.copy-btn::after {
+  content: "";
+  position: absolute;
+  border: 2px solid #555;
+  border-radius: 3px;
+  background: transparent;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+/* Back sheet */
+.copy-btn::before {
+  width: 14px;
+  height: 14px;
+  top: 4px;
+  left: 6px;
+}
+
+/* Front sheet */
+.copy-btn::after {
+  width: 14px;
+  height: 14px;
+  top: 0;
+  left: 2px;
+  background: #fff;
+}
+
+/* Hover Effect: Blue Glow */
 .copy-btn:hover {
-  background: #357ae8;
-  box-shadow: 0 0 12px rgba(66,133,244,0.8), 0 0 20px rgba(66,133,244,0.6);
-  transform: translateY(-1px);
+  background: #f0f8ff;
+  box-shadow: 0 0 8px rgba(66,133,244,0.6);
 }
 
-.copy-btn svg {
-  width: 20px;
-  height: 20px;
-  fill: #fff;
+.copy-btn:hover::before,
+.copy-btn:hover::after {
+  border-color: #4285f4;
+  box-shadow: 0 0 6px rgba(66,133,244,0.8);
 }
 
-/* ---------- Copy Notification (Glow Effect) ---------- */
+/* ---------- Copy Notification ---------- */
 #copyNotification {
   position: fixed;
   bottom: 20px;
   left: 20px;
   background: #4caf50;
   color: #fff;
-  padding: 12px 18px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(76,175,80,0.7), 0 0 25px rgba(76,175,80,0.5);
+  padding: 10px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   display: none;
-  animation: fadeInOut 2.5s ease forwards, pulseGlow 1.5s infinite;
+  animation: fadeInOut 2.5s ease forwards;
   font-size: 14px;
-  font-weight: 500;
 }
 
 @keyframes fadeInOut {
@@ -169,10 +194,4 @@ p { color: #555; margin-bottom: 20px; }
   10% { opacity: 1; transform: translateY(0); }
   90% { opacity: 1; transform: translateY(0); }
   100% { opacity: 0; transform: translateY(20px); }
-}
-
-@keyframes pulseGlow {
-  0% { box-shadow: 0 0 10px rgba(76,175,80,0.5), 0 0 20px rgba(76,175,80,0.3); }
-  50% { box-shadow: 0 0 18px rgba(76,175,80,0.8), 0 0 30px rgba(76,175,80,0.6); }
-  100% { box-shadow: 0 0 10px rgba(76,175,80,0.5), 0 0 20px rgba(76,175,80,0.3); }
 }
