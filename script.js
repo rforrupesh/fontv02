@@ -195,3 +195,12 @@ window.addEventListener("DOMContentLoaded", () => {
 
   addCopyIcons();
 });
+
+  window.addEventListener("scroll", () => {
+    const searchBox = document.getElementById("searchSection");
+    if (window.scrollY > 30) {
+      searchBox.classList.add("shrink");
+    } else {
+      searchBox.classList.remove("shrink");
+    }
+  });
