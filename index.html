@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Font Generator</title>
-   <link rel="stylesheet" href="https://rforrupesh.github.io/fontv02/style.css">
+   <link rel="stylesheet" href="./style.css">
  
 
 </head>
@@ -22,10 +23,24 @@
     <span class="clear-btn" onclick="clearInput()">×</span>
   </div>
 
-  <nav class="tab-nav">
-    <a href="https://rforrupesh.github.io/fontv02/" class="tab-link active">Home</a>
-    <a href="https://rforrupesh.github.io/fontv02/tools/symbol-wrappers.html" class="tab-link">Symbol Wrappers</a>
-  </nav>
+  <div class="tab-wrapper">
+    <span class="scroll-btn left-btn" id="scrollLeftBtn">&lt;</span>
+    <nav class="tab-nav" id="tabNav">
+      <a href=".." class="tab-link active">All Fonts</a>
+      <a href="../tools/cool.html" class="tab-link">Cool</a>
+      <a href="../tools/fancy.html" class="tab-link">Fancy</a>
+      <a href="../tools/cursive.html" class="tab-link">Cursive</a>
+      <a href="../tools/small.html" class="tab-link">Small</a>
+      <a href="../tools/bold.html" class="tab-link">Bold</a>
+      <a href="../tools/glitch.html" class="tab-link">Glitch</a>
+      <a href="../tools/symbols.html" class="tab-link">Symbol text</a>
+      <a href="../tools/text-art.html" class="tab-link">Text art</a>
+      <a href="../tools/strikethrough.html" class="tab-link">Strikethrough</a>
+      <a href="../tools/invisible.html" class="tab-link">Invisible</a>
+      
+    </nav>
+    <span class="scroll-btn right-btn" id="scrollRightBtn">&gt;</span>
+  </div>
 </div>
 
  
@@ -149,6 +164,6 @@
 
   <div id="copyNotification"></div>
 
-<script src="https://rforrupesh.github.io/fontv02/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
