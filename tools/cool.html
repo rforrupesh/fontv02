@@ -1,0 +1,169 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Font Generator</title>
+   <link rel="stylesheet" href="../style.css">
+ 
+
+</head>
+<body>
+
+  <h1>Font Generator</h1>
+  <p>Type text and copy it in different styles.</p>
+
+<!-- ✅ Search + Tabs together -->
+<div class="search-section" id="searchSection">
+  <div class="input-container">
+    <input type="text" id="userInput" placeholder="Type something..." oninput="handleInputChange()" />
+    <span class="clear-btn" onclick="clearInput()">×</span>
+  </div>
+
+  <div class="tab-wrapper">
+    <span class="scroll-btn left-btn" id="scrollLeftBtn">&lt;</span>
+    <nav class="tab-nav" id="tabNav">
+      <a href=".." class="tab-link active">All Fonts</a>
+      <a href="../tools/cool.html" class="tab-link">Cool</a>
+      <a href="../tools/fancy.html" class="tab-link">Fancy</a>
+      <a href="../tools/cursive.html" class="tab-link">Cursive</a>
+      <a href="../tools/small.html" class="tab-link">Small</a>
+      <a href="../tools/bold.html" class="tab-link">Bold</a>
+      <a href="../tools/glitch.html" class="tab-link">Glitch</a>
+      <a href="../tools/symbols.html" class="tab-link">Symbol text</a>
+      <a href="../tools/text-art.html" class="tab-link">Text art</a>
+      <a href="../tools/strikethrough.html" class="tab-link">Strikethrough</a>
+      <a href="../tools/invisible.html" class="tab-link">Invisible</a>
+      
+    </nav>
+    <span class="scroll-btn right-btn" id="scrollRightBtn">&gt;</span>
+  </div>
+</div>
+
+ 
+
+  <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>
+    <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>
+    <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>
+    <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>
+    <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>
+    <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>
+    <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>
+    <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>
+    <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>
+    <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>
+    <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>  <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>  <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>  <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>  <!-- Curly Wrap -->
+  <div class="output-box">
+    <div class="text-content">
+      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
+      <span class="style-name">Curly Wrap</span>
+    </div>
+    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  </div>
+
+  <div id="copyNotification"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
