@@ -127,23 +127,16 @@ function clearInput() {
 }
 
 // ---------- Copy Handling ----------
-// ---------- Copy Handling ----------
 function copyToClipboard(id) {
   const el = document.getElementById(id);
   if (!el) return;
 
-  // Get the styled text content directly from the element
-  const styledText = el.textContent;
-
-  navigator.clipboard.writeText(styledText).then(() => {
+  navigator.clipboard.writeText(el.textContent).then(() => {
     const note = document.getElementById("copyNotification");
     if (note) {
-      // Update the notification text with the actual styled text
-      note.textContent = styledText + " Copied!";
+      note.textContent = "Copied!";
       note.style.display = "block";
-      setTimeout(() => {
-        note.style.display = "none";
-      }, 1500);
+      setTimeout(() => { note.style.display = "none"; }, 1500);
     }
   });
 }
@@ -211,85 +204,3 @@ window.addEventListener("DOMContentLoaded", () => {
       searchBox.classList.remove("shrink");
     }
   });
-
-
-  /* Add to your existing JavaScript file */
-
-/**
- * Checks if the navigation tabs are overflowing and shows/hides scroll buttons.
- */
-function checkTabOverflow() {
-  const tabNav = document.getElementById("tabNav");
-  const scrollLeftBtn = document.getElementById("scrollLeftBtn");
-  const scrollRightBtn = document.getElementById("scrollRightBtn");
-  const tabWrapper = document.querySelector(".tab-wrapper");
-
-  if (!tabNav || !scrollLeftBtn || !scrollRightBtn || !tabWrapper) return;
-
-  const isOverflowing = tabNav.scrollWidth > tabNav.clientWidth;
-
-  if (isOverflowing) {
-    tabWrapper.classList.add("has-buttons");
-    scrollRightBtn.classList.add("show");
-  } else {
-    tabWrapper.classList.remove("has-buttons");
-    scrollLeftBtn.classList.remove("show");
-    scrollRightBtn.classList.remove("show");
-  }
-
-  // Update button visibility based on scroll position
-  if (isOverflowing) {
-    // Hide left button if at the start
-    if (tabNav.scrollLeft === 0) {
-      scrollLeftBtn.classList.remove("show");
-    } else {
-      scrollLeftBtn.classList.add("show");
-    }
-
-    // Hide right button if at the end
-    if (tabNav.scrollLeft + tabNav.clientWidth >= tabNav.scrollWidth - 1) { // -1 for a small buffer
-      scrollRightBtn.classList.remove("show");
-    } else {
-      scrollRightBtn.classList.add("show");
-    }
-  }
-}
-
-/**
- * Scrolls the tab navigation left or right.
- * @param {string} direction - "left" or "right"
- */
-function scrollTabs(direction) {
-  const tabNav = document.getElementById("tabNav");
-  const scrollAmount = tabNav.clientWidth / 2; // Scroll half a viewport
-  if (direction === "left") {
-    tabNav.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-  } else if (direction === "right") {
-    tabNav.scrollBy({ left: scrollAmount, behavior: "smooth" });
-  }
-}
-
-// Add event listeners
-window.addEventListener("resize", checkTabOverflow);
-window.addEventListener("DOMContentLoaded", () => {
-  // Existing DOMContentLoaded logic
-  // ... (your existing code) ...
-  
-  // Add new logic for buttons
-  checkTabOverflow();
-  const tabNav = document.getElementById("tabNav");
-  const scrollLeftBtn = document.getElementById("scrollLeftBtn");
-  const scrollRightBtn = document.getElementById("scrollRightBtn");
-
-  if (tabNav) {
-    tabNav.addEventListener("scroll", checkTabOverflow);
-  }
-  
-  if (scrollLeftBtn) {
-    scrollLeftBtn.addEventListener("click", () => scrollTabs("left"));
-  }
-  
-  if (scrollRightBtn) {
-    scrollRightBtn.addEventListener("click", () => scrollTabs("right"));
-  }
-});
