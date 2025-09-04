@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+  
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(to right, #f9f9f9, #eef1f5);
@@ -413,6 +413,22 @@ body {
   max-width: 800px;
   margin: 0 auto;
 }
+
+      .output-list h1{
+            margin: 2px;
+            color: #1c1818;
+            font-weight: 900;
+            text-align: center;
+        }
+        .output-list p{
+           font-size: 18px;
+            margin: 0px;
+            color: #1c1818;
+            font-weight: 400;
+            text-align: center;
+          padding:10px
+        }
+
 
 /* ---------- Sticky Search Section ---------- */
 .search-section {
