@@ -611,6 +611,69 @@ function toHearts(text) {
   return text.split("").map(ch => map[ch] || ch).join("");
 }
 
+// Trible Style
+function toTrible(text) {
+  const map = {
+    a: "𒀀", b: "𒁀", c: "𒐏", d: "𒁓", e: "𒀼", f: "𐎣", g: "𒋝", h: "𒀂",
+    i: "𒐕", j: "𒑟", k: "𒐞", l: "𒁇", m: "𐎠", n: "𒐖", o: "𒆸", p: "𒇬",
+    q: "𒌒", r: "𒇲", s: "𒂍", t: "𒈦", u: "𒑚", v: "𐎏", w: "𒉼", x: "𒉽",
+    y: "𒌨", z: "𒑣",
+
+    A: "𒀀", B: "𒁀", C: "𒐏", D: "𒁓", E: "𒀼", F: "𐎣", G: "𒋝", H: "𒀂",
+    I: "𒐕", J: "𒑟", K: "𒐞", L: "𒁇", M: "𐎠", N: "𒐖", O: "𒆸", P: "𒇬",
+    Q: "𒌒", R: "𒇲", S: "𒂍", T: "𒈦", U: "𒑚", V: "𐎏", W: "𒉼", X: "𒉽",
+    Y: "𒌨", Z: "𒑣"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Fat Style
+function toFat(text) {
+  const map = {
+    a: "ᗩ", b: "ᗷ", c: "ᑕ", d: "ᗪ", e: "ᗴ", f: "ᖴ", g: "Ǥ", h: "ᕼ",
+    i: "Ꭵ", j: "ᒎ", k: "ᛕ", l: "ᒪ", m: "ᗰ", n: "ᑎ", o: "ᗝ", p: "ᑭ",
+    q: "Ɋ", r: "ᖇ", s: "ᔕ", t: "丅", u: "ᑌ", v: "ᐯ", w: "ᗯ", x: "᙭",
+    y: "Ƴ", z: "乙",
+
+    A: "ᗩ", B: "ᗷ", C: "ᑕ", D: "ᗪ", E: "ᗴ", F: "ᖴ", G: "Ǥ", H: "ᕼ",
+    I: "Ꭵ", J: "ᒎ", K: "ᛕ", L: "ᒪ", M: "ᗰ", N: "ᑎ", O: "ᗝ", P: "ᑭ",
+    Q: "Ɋ", R: "ᖇ", S: "ᔕ", T: "丅", U: "ᑌ", V: "ᐯ", W: "ᗯ", X: "᙭",
+    Y: "Ƴ", Z: "乙"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Gun Fire Style
+function toGunFire(text) {
+  const map = {
+    a: "Λ", b: "B", c: "ᄃ", d: "D", e: "Σ", f: "F", g: "G", h: "Ή",
+    i: "I", j: "J", k: "K", l: "ᄂ", m: "M", n: "П", o: "Ө", p: "P",
+    q: "Q", r: "Я", s: "Ƨ", t: "Ƭ", u: "Ц", v: "V", w: "Щ", x: "X",
+    y: "Y", z: "Z",
+
+    A: "Λ", B: "B", C: "ᄃ", D: "D", E: "Σ", F: "F", G: "G", H: "Ή",
+    I: "I", J: "J", K: "K", L: "ᄂ", M: "M", N: "П", O: "Ө", P: "P",
+    Q: "Q", R: "Я", S: "Ƨ", T: "Ƭ", U: "Ц", V: "V", W: "Щ", X: "X",
+    Y: "Y", Z: "Z"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+// Emoji Fancy Style
+function toEmojiFancy(text) {
+  const map = {
+    a: "ꍏ", b: "♭", c: "☾", d: "◗", e: "€", f: "Ϝ", g: "❡", h: "♄",
+    i: "♗", j: "♪", k: "ϰ", l: "↳", m: "♔", n: "♫", o: "⊙", p: "ρ",
+    q: "☭", r: "☈", s: "ⓢ", t: "☂", u: "☋", v: "✓", w: "ω", x: "⌘",
+    y: "☿", z: "☡",
+
+    A: "ꍏ", B: "♭", C: "☾", D: "◗", E: "€", F: "Ϝ", G: "❡", H: "♄",
+    I: "♗", J: "♪", K: "ϰ", L: "↳", M: "♔", N: "♫", O: "⊙", P: "ρ",
+    Q: "☭", R: "☈", S: "ⓢ", T: "☂", U: "☋", V: "✓", W: "ω", X: "⌘",
+    Y: "☿", Z: "☡"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
 function updateOutputs(text) {
   // Cursive
   const cursiveEl = document.getElementById("CursiveOutput");
@@ -618,11 +681,33 @@ function updateOutputs(text) {
     cursiveEl.textContent = text ? toCursive(text) : "𝒞𝓊𝓇𝓈𝒾𝓋ℯ";
   }
 
+  // Emoji Fancy
+const emojiFancyEl = document.getElementById("EmojiFancyOutput");
+if (emojiFancyEl) {
+  emojiFancyEl.textContent = text ? toEmojiFancy(text) : toEmojiFancy("Emoji Fancy");
+}
+
+// Fat
+const fatEl = document.getElementById("FatOutput");
+if (fatEl) {
+  fatEl.textContent = text ? toFat(text) : toFat("Fat");
+}
+// Gun Fire
+const gunFireEl = document.getElementById("GunFireOutput");
+if (gunFireEl) {
+  gunFireEl.textContent = text ? toGunFire(text) : toGunFire("Gun Fire");
+}
+
   // Gothic
   const gothicEl = document.getElementById("GothicOutput");
   if (gothicEl) {
     gothicEl.textContent = text ? toGothic(text) : "𝔊𝔬𝔱𝔥𝔦𝔠";
   }
+// Trible
+const tribleEl = document.getElementById("TribleOutput");
+if (tribleEl) {
+  tribleEl.textContent = text ? toTrible(text) : toTrible("Trible");
+}
 
   // Curly Wrap
   const curlyEl = document.getElementById("CurlyOutput");
