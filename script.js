@@ -320,12 +320,297 @@ function toLuniTools(text) {
   return text.split("").map(ch => map[ch] || ch).join("");
 }
 
-// ---------- Update Outputs ----------
-/**
- * Updates the styled output elements.
- * If text is provided, it applies the style to the text.
- * If text is empty, it shows the default styled words.
- */
+// Mystic Style
+function toMystic(text) {
+  const map = {
+    a: "á", b: "ḃ", c: "ć", d: "ď", e: "é", f: "ḟ", g: "ǵ", h: "ḣ",
+    i: "í", j: "ĵ", k: "ḱ", l: "ĺ", m: "ḿ", n: "ń", o: "ó", p: "ṕ",
+    q: "ɋ", r: "ŕ", s: "ś", t: "ṫ", u: "ú", v: "ṽ", w: "ẃ", x: "ẋ",
+    y: "ý", z: "ź",
+    A: "Á", B: "Ḃ", C: "Ć", D: "Ď", E: "É", F: "Ḟ", G: "Ǵ", H: "Ḣ",
+    I: "Í", J: "Ĵ", K: "Ḱ", L: "Ĺ", M: "Ḿ", N: "Ń", O: "Ó", P: "Ṕ",
+    Q: "Ɋ", R: "Ŕ", S: "Ś", T: "Ṫ", U: "Ú", V: "Ṽ", W: "Ẃ", X: "Ẋ",
+    Y: "Ý", Z: "Ź"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Crystal Style
+function toCrystal(text) {
+  const map = {
+    a: "ä", b: "ƀ", c: "ç", d: "đ", e: "ë", f: "ƒ", g: "ģ", h: "ħ",
+    i: "ï", j: "ĵ", k: "ķ", l: "ŀ", m: "ṁ", n: "ñ", o: "ö", p: "ṗ",
+    q: "ʠ", r: "ř", s: "ş", t: "ť", u: "ü", v: "ṿ", w: "ẅ", x: "ẍ",
+    y: "ÿ", z: "ž",
+    A: "Ä", B: "Ƀ", C: "Ç", D: "Đ", E: "Ë", F: "Ƒ", G: "Ģ", H: "Ħ",
+    I: "Ï", J: "Ĵ", K: "Ķ", L: "Ł", M: "Ṁ", N: "Ñ", O: "Ö", P: "Ṗ",
+    Q: "Ɋ", R: "Ř", S: "Ş", T: "Ť", U: "Ü", V: "Ṿ", W: "Ẅ", X: "Ẍ",
+    Y: "Ÿ", Z: "Ž"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Arcane Style
+function toArcane(text) {
+  const map = {
+    a: "â", b: "ƀ", c: "ĉ", d: "ḓ", e: "ê", f: "ϝ", g: "ĝ", h: "ḧ",
+    i: "î", j: "ʝ", k: "ḳ", l: "ļ", m: "ṃ", n: "ñ", o: "ô", p: "ᵱ",
+    q: "ʠ", r: "ŗ", s: "ŝ", t: "ṯ", u: "û", v: "ѵ", w: "ŵ", x: "ẋ",
+    y: "ŷ", z: "ẑ",
+    A: "Â", B: "Ƀ", C: "Ĉ", D: "Ḓ", E: "Ê", F: "Ƒ", G: "Ĝ", H: "Ḧ",
+    I: "Î", J: "Ĵ", K: "Ḳ", L: "Ļ", M: "Ṃ", N: "Ñ", O: "Ô", P: "Ṕ",
+    Q: "Ɋ", R: "Ŗ", S: "Ŝ", T: "Ṯ", U: "Û", V: "Ѵ", W: "Ŵ", X: "Ẋ",
+    Y: "Ŷ", Z: "Ẑ"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Shadow Style
+function toShadow(text) {
+  const map = {
+    a: "à", b: "ƀ", c: "ċ", d: "đ", e: "è", f: "ḟ", g: "ġ", h: "ḥ",
+    i: "ì", j: "ĵ", k: "ḵ", l: "ļ", m: "ṁ", n: "ǹ", o: "ò", p: "ṕ",
+    q: "ʠ", r: "ȑ", s: "ş", t: "ț", u: "ù", v: "ṿ", w: "ẁ", x: "ẋ",
+    y: "ỳ", z: "ż",
+    A: "À", B: "Ƀ", C: "Ċ", D: "Đ", E: "È", F: "Ḟ", G: "Ġ", H: "Ḥ",
+    I: "Ì", J: "Ĵ", K: "Ḵ", L: "Ļ", M: "Ṁ", N: "Ǹ", O: "Ò", P: "Ṕ",
+    Q: "Ɋ", R: "Ȑ", S: "Ş", T: "Ț", U: "Ù", V: "Ṿ", W: "Ẁ", X: "Ẋ",
+    Y: "Ỳ", Z: "Ż"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Solar Style
+function toSolar(text) {
+  const map = {
+    a: "ā", b: "ƀ", c: "č", d: "ď", e: "ē", f: "ḟ", g: "ğ", h: "ĥ",
+    i: "ī", j: "ĵ", k: "ķ", l: "ĺ", m: "ṁ", n: "ņ", o: "ō", p: "ṗ",
+    q: "ɋ", r: "ř", s: "š", t: "ť", u: "ū", v: "ṿ", w: "ŵ", x: "ẋ",
+    y: "ȳ", z: "ž",
+    A: "Ā", B: "Ƀ", C: "Č", D: "Ď", E: "Ē", F: "Ḟ", G: "Ğ", H: "Ĥ",
+    I: "Ī", J: "Ĵ", K: "Ķ", L: "Ĺ", M: "Ṁ", N: "Ņ", O: "Ō", P: "Ṗ",
+    Q: "Ɋ", R: "Ř", S: "Š", T: "Ť", U: "Ū", V: "Ṿ", W: "Ŵ", X: "Ẋ",
+    Y: "Ȳ", Z: "Ž"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Ember Style
+function toEmber(text) {
+  const map = {
+    a: "ã", b: "ƀ", c: "ç", d: "ď", e: "ẽ", f: "ƒ", g: "ģ", h: "ħ",
+    i: "ĩ", j: "ĵ", k: "ķ", l: "ŀ", m: "ṁ", n: "ñ", o: "õ", p: "ṕ",
+    q: "ɋ", r: "ř", s: "ş", t: "ţ", u: "ũ", v: "ṽ", w: "ŵ", x: "ẋ",
+    y: "ỹ", z: "ž",
+    A: "Ã", B: "Ƀ", C: "Ç", D: "Ď", E: "Ẽ", F: "Ƒ", G: "Ģ", H: "Ħ",
+    I: "Ĩ", J: "Ĵ", K: "Ķ", L: "Ł", M: "Ṁ", N: "Ñ", O: "Õ", P: "Ṕ",
+    Q: "Ɋ", R: "Ř", S: "Ş", T: "Ţ", U: "Ũ", V: "Ṽ", W: "Ŵ", X: "Ẋ",
+    Y: "Ỹ", Z: "Ž"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Frost Style
+function toFrost(text) {
+  const map = {
+    a: "å", b: "ƀ", c: "ç", d: "đ", e: "ë", f: "ḟ", g: "ģ", h: "ḧ",
+    i: "ï", j: "ĵ", k: "ķ", l: "ŀ", m: "ṁ", n: "ñ", o: "ö", p: "ṗ",
+    q: "ʠ", r: "ř", s: "ş", t: "ť", u: "ü", v: "ṿ", w: "ẅ", x: "ẍ",
+    y: "ÿ", z: "ž",
+    A: "Å", B: "Ƀ", C: "Ç", D: "Đ", E: "Ë", F: "Ḟ", G: "Ģ", H: "Ḧ",
+    I: "Ï", J: "Ĵ", K: "Ķ", L: "Ł", M: "Ṁ", N: "Ñ", O: "Ö", P: "Ṗ",
+    Q: "Ɋ", R: "Ř", S: "Ş", T: "Ť", U: "Ü", V: "Ṿ", W: "Ẅ", X: "Ẍ",
+    Y: "Ÿ", Z: "Ž"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Storm Style
+function toStorm(text) {
+  const map = {
+    a: "ǎ", b: "ƀ", c: "č", d: "ď", e: "ě", f: "ƒ", g: "ǧ", h: "ȟ",
+    i: "ǐ", j: "ĵ", k: "ǩ", l: "ľ", m: "ṁ", n: "ň", o: "ǒ", p: "ṕ",
+    q: "ɋ", r: "ř", s: "š", t: "ť", u: "ǔ", v: "ṿ", w: "ŵ", x: "ẋ",
+    y: "ý", z: "ž",
+    A: "Ǎ", B: "Ƀ", C: "Č", D: "Ď", E: "Ě", F: "Ƒ", G: "Ǧ", H: "Ȟ",
+    I: "Ǐ", J: "Ĵ", K: "Ǩ", L: "Ľ", M: "Ṁ", N: "Ň", O: "Ǒ", P: "Ṗ",
+    Q: "Ɋ", R: "Ř", S: "Š", T: "Ť", U: "Ǔ", V: "Ṿ", W: "Ŵ", X: "Ẋ",
+    Y: "Ý", Z: "Ž"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Lunar Style
+function toLunar(text) {
+  const map = {
+    a: "ă", b: "ƀ", c: "ĉ", d: "ď", e: "ĕ", f: "ƒ", g: "ğ", h: "ḩ",
+    i: "ĭ", j: "ĵ", k: "ķ", l: "ĺ", m: "ṁ", n: "ň", o: "ŏ", p: "ṕ",
+    q: "ɋ", r: "ř", s: "ŝ", t: "ť", u: "ŭ", v: "ṿ", w: "ŵ", x: "ẋ",
+    y: "ŷ", z: "ž",
+    A: "Ă", B: "Ƀ", C: "Ĉ", D: "Ď", E: "Ĕ", F: "Ƒ", G: "Ğ", H: "Ḩ",
+    I: "Ĭ", J: "Ĵ", K: "Ķ", L: "Ĺ", M: "Ṁ", N: "Ň", O: "Ŏ", P: "Ṗ",
+    Q: "Ɋ", R: "Ř", S: "Ŝ", T: "Ť", U: "Ŭ", V: "Ṿ", W: "Ŵ", X: "Ẋ",
+    Y: "Ŷ", Z: "Ž"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Cosmic Style
+function toCosmic(text) {
+  const map = {
+    a: "ȧ", b: "ƀ", c: "ċ", d: "ď", e: "ė", f: "ƒ", g: "ġ", h: "ḧ",
+    i: "ı", j: "ĵ", k: "ķ", l: "ŀ", m: "ṁ", n: "ṅ", o: "ȯ", p: "ṕ",
+    q: "ɋ", r: "ŕ", s: "ś", t: "ṫ", u: "ŭ", v: "ṿ", w: "ẇ", x: "ẋ",
+    y: "ẏ", z: "ż",
+    A: "Ȧ", B: "Ƀ", C: "Ċ", D: "Ď", E: "Ė", F: "Ƒ", G: "Ġ", H: "Ḧ",
+    I: "İ", J: "Ĵ", K: "Ķ", L: "Ł", M: "Ṁ", N: "Ṅ", O: "Ȯ", P: "Ṗ",
+    Q: "Ɋ", R: "Ŕ", S: "Ś", T: "Ṫ", U: "Ŭ", V: "Ṿ", W: "Ẇ", X: "Ẋ",
+    Y: "Ẏ", Z: "Ż"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Rune Style
+function toRune(text) {
+  const map = {
+    a: "ấ", b: "ƀ", c: "č", d: "ď", e: "ế", f: "ƒ", g: "ǧ", h: "ḫ",
+    i: "ǐ", j: "ĵ", k: "ḱ", l: "ľ", m: "ṃ", n: "ň", o: "ố", p: "ṗ",
+    q: "ɋ", r: "ř", s: "š", t: "ť", u: "ǔ", v: "ṿ", w: "ẇ", x: "ẋ",
+    y: "ý", z: "ž",
+    A: "Ấ", B: "Ƀ", C: "Č", D: "Ď", E: "Ế", F: "Ƒ", G: "Ǧ", H: "Ḫ",
+    I: "Ǐ", J: "Ĵ", K: "Ḱ", L: "Ľ", M: "Ṃ", N: "Ň", O: "Ố", P: "Ṗ",
+    Q: "Ɋ", R: "Ř", S: "Š", T: "Ť", U: "Ǔ", V: "Ṿ", W: "Ẇ", X: "Ẋ",
+    Y: "Ý", Z: "Ž"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Infernal Style
+function toInfernal(text) {
+  const map = {
+    a: "ầ", b: "ƀ", c: "ç", d: "ḓ", e: "ề", f: "ƒ", g: "ģ", h: "ḥ",
+    i: "ǐ", j: "ĵ", k: "ḳ", l: "ļ", m: "ṃ", n: "ǹ", o: "ồ", p: "ṕ",
+    q: "ʠ", r: "ȓ", s: "ş", t: "ț", u: "ǜ", v: "ṿ", w: "ẅ", x: "ẍ",
+    y: "ỳ", z: "ž",
+    A: "Ầ", B: "Ƀ", C: "Ç", D: "Ḓ", E: "Ề", F: "Ƒ", G: "Ģ", H: "Ḥ",
+    I: "Ǐ", J: "Ĵ", K: "Ḳ", L: "Ļ", M: "Ṃ", N: "Ǹ", O: "Ồ", P: "Ṕ",
+    Q: "Ɋ", R: "Ȓ", S: "Ş", T: "Ț", U: "Ǜ", V: "Ṿ", W: "Ẅ", X: "Ẍ",
+    Y: "Ỳ", Z: "Ž"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+// Zalgo Style
+function toZalgo(text) {
+  const map = {
+    a: "a҉͖̟̜̞̂̃̑̽͢͢͠͡", b: "b҉͙̺̻̥̅̎͋̕͜͝͡͞͠", 
+    c: "c̷̶҉̵̢͚̣̻̲̬͑̑͛͐̀͜͝͡͝͠", d: "d҉̴̷̧̢̛̖͔̤ͯ̔̑̄͢͡͠", 
+    e: "e̵̡̫̫͍͕̎ͭ̐͟͟͝͞", f: "f҉̴̥͎̰̰̒͌͛͐ͧ̕͜͝͡͞", 
+    g: "g̷̵̸̡̼̱͎͎̞ͤͬ̅͢͟͞", h: "h̷̶̘̘̬ͭ̏͞͡", 
+    i: "i҉̧̯̤̙͔̑ͧ̅̔ͦ́͜͟͝͠", j: "ǰ̸̶̭͓͓̀̈́͜ͅ", 
+    k: "k҉̴̶̬͈̫̹͖̾̎ͭ́̍̐͜͝͠", l: "l̶҉̰͚͖͕̍̈́̅͗̏̇͢͝", 
+    m: "m̴̵҉̸̲̗̰̼͗͌̃̇͟͠͞͠", n: "n̸͐̈́͟͟͝", 
+    o: "o҉̢̡̲͇̌͗̀͢͝", p: "p̷̸̷̨͙͙͇ͨ̌ͣ͋͟͠", 
+    q: "q҉̧͚̰̾͋͢͝͡", r: "r҉̵҉̛̠̩̥̋ͦ̆͆͟͞͡͞͠", 
+    s: "s҉̝̭̦͚̑ͯ̌͡", t: "t҉̷҉̢͖͔̹͛̌͊͘͜͠͡͡", 
+    u: "u̶͖̖͆̊̈́͡͡", v: "v҉̨̊͢͠͠", 
+    w: "w҉̢̡̹̮͌̄ͦ͜͞͠͞", x: "x҉̣ͫͧ̕͘͜", 
+    y: "ȳ̸̵̩̜͔͍̔́͟͡", z: "z̷҉̲ͥ͆̿̆ͭ͞",
+
+    A: "A҉҉̦̣̤͔̟̩̋̿̏ͦ̈́̍͟͠", B: "B̵̴҉̞̠̘̩͍́͊͗͠͠͠͠ͱ", 
+    C: "C҉͓̟͇̼͕̻ͭ͌ͩ̒͘͡͞͠", D: "D҉̣͍̓̎͗", 
+    E: "E҉̰̰͎̆͞", F: "F̶̵͖͚̯̮̤̫̿̆͌͋͡͡", 
+    G: "G̸҉̜̜̱̄ͩ͆͝͞", H: "H̴̶̵҉̨̡̛̼͎̫͓̒́̔ͩ͠͞͞", 
+    I: "I҉̡̯̺̜̅́͋̃͢", J: "J̴̵҉̣͖̃̉̓́", 
+    K: "K҉̿ͭ͘͜", L: "L̴҉̴͙͖̞̳̜ͣͧ̑̑͞͠͞͠", 
+    M: "M̶̶҉̳͈̺͠͠ͅ", N: "N̵҉̾͟͞͡", 
+    O: "O̷̵҉̢̭͚̜̠ͫͣ͐͠͞͝", P: "P҉̷̧̥͚̣̉̓̕͠͞͠͝ͅ", 
+    Q: "Q̵̴̢͕̬̒̅̊͜͠͠͡", R: "R̴҉̷̨̖̮̉͑ͯ̑̋͟͠", 
+    S: "Ṡ̷̢̫̞̻͈͋͛̓̅͜͠͠͠", T: "T҉̘͙͖̠̓ͦ͑̄͞", 
+    U: "U̵̶̸̹̮̹̲̻͙̎ͪͣͦ͡͞͡͡", V: "V̶̝̐̀͝", 
+    W: "W̵̶̸̻̼͉̱̄͗ͭ͠", X: "X̵̶҉̠͉͓̝̾ͅ", 
+    Y: "Y̵̡̬͖̠̋ͫ̌ͤ̚͞͞", Z: "Z҉͆͢͠͠"
+  };
+
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Aurora Style
+function toAurora(text) {
+  const map = {
+    a: "ắ", b: "ƀ", c: "č", d: "ď", e: "ḗ", f: "ƒ", g: "ǧ", h: "ḫ",
+    i: "ǐ", j: "ĵ", k: "ḱ", l: "ľ", m: "ṃ", n: "ǹ", o: "ǒ", p: "ṕ",
+    q: "ɋ", r: "ř", s: "š", t: "ť", u: "ǔ", v: "ṿ", w: "ẇ", x: "ẋ",
+    y: "ý", z: "ž",
+    A: "Ắ", B: "Ƀ", C: "Č", D: "Ď", E: "Ḗ", F: "Ƒ", G: "Ǧ", H: "Ḫ",
+    I: "Ǐ", J: "Ĵ", K: "Ḱ", L: "Ľ", M: "Ṃ", N: "Ǹ", O: "Ǒ", P: "Ṕ",
+    Q: "Ɋ", R: "Ř", S: "Š", T: "Ť", U: "Ǔ", V: "Ṿ", W: "Ẇ", X: "Ẋ",
+    Y: "Ý", Z: "Ž"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Twilight Style
+function toTwilight(text) {
+  const map = {
+    a: "ằ", b: "ƀ", c: "ċ", d: "ď", e: "ḕ", f: "ƒ", g: "ġ", h: "ḥ",
+    i: "ǐ", j: "ĵ", k: "ḳ", l: "ļ", m: "ṃ", n: "ǹ", o: "ǒ", p: "ṕ",
+    q: "ʠ", r: "ȑ", s: "ş", t: "ť", u: "ǔ", v: "ṿ", w: "ẇ", x: "ẋ",
+    y: "ỳ", z: "ż",
+    A: "Ằ", B: "Ƀ", C: "Ċ", D: "Ď", E: "Ḕ", F: "Ƒ", G: "Ġ", H: "Ḥ",
+    I: "Ǐ", J: "Ĵ", K: "Ḳ", L: "Ļ", M: "Ṃ", N: "Ǹ", O: "Ǒ", P: "Ṕ",
+    Q: "Ɋ", R: "Ȑ", S: "Ş", T: "Ť", U: "Ǔ", V: "Ṿ", W: "Ẇ", X: "Ẋ",
+    Y: "Ỳ", Z: "Ż"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Ethereal Style
+function toEthereal(text) {
+  const map = {
+    a: "ǡ", b: "ƀ", c: "č", d: "ď", e: "ḝ", f: "ƒ", g: "ǥ", h: "ħ",
+    i: "ȋ", j: "ĵ", k: "ķ", l: "ŀ", m: "ṁ", n: "ń", o: "ǫ", p: "ṗ",
+    q: "ɋ", r: "ř", s: "š", t: "ṯ", u: "ǖ", v: "ṿ", w: "ẅ", x: "ẋ",
+    y: "ẏ", z: "ž",
+    A: "Ǡ", B: "Ƀ", C: "Č", D: "Ď", E: "Ḝ", F: "Ƒ", G: "Ǥ", H: "Ħ",
+    I: "Ȋ", J: "Ĵ", K: "Ķ", L: "Ł", M: "Ṁ", N: "Ń", O: "Ǫ", P: "Ṗ",
+    Q: "Ɋ", R: "Ř", S: "Š", T: "Ṯ", U: "Ǖ", V: "Ṿ", W: "Ẅ", X: "Ẋ",
+    Y: "Ẏ", Z: "Ž"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Fancy Style 1
+function toFancy1(text) {
+  const map = {
+    a: "λ", b: "𐒈", c: "𐒨", d: "Ꮷ", e: "𐒢", f: "Ӻ", g: "Ⳓ", h: "𐒅",
+    i: "Ꭵ", j: "Ꮽ", k: "Ꮵ", l: "Ꮣ", m: "𐒄", n: "𐒐", o: "𐒀", p: "Ꮅ",
+    q: "𐒉", r: "Ⲅ", s: "Ꮄ", t: "Ꮏ", u: "𐒜", v: "Ꮙ", w: "Ꮚ", x: "𐒎",
+    y: "𐒍", z: "೩",
+
+    A: "λ", B: "𐒈", C: "𐒨", D: "Ꮷ", E: "𐒢", F: "Ӻ", G: "Ⳓ", H: "𐒅",
+    I: "Ꭵ", J: "Ꮽ", K: "Ꮵ", L: "Ꮣ", M: "𐒄", N: "𐒐", O: "𐒀", P: "Ꮅ",
+    Q: "𐒉", R: "Ⲅ", S: "Ꮄ", T: "Ꮏ", U: "𐒜", V: "Ꮙ", W: "Ꮚ", X: "𐒎",
+    Y: "𐒍", Z: "೩"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Hearts Style
+function toHearts(text) {
+  const map = {
+    a: "a♥", b: "b♥", c: "c♥", d: "d♥", e: "e♥", f: "f♥", g: "g♥", h: "h♥",
+    i: "i♥", j: "j♥", k: "k♥", l: "l♥", m: "m♥", n: "n♥", o: "o♥", p: "p♥",
+    q: "q♥", r: "r♥", s: "s♥", t: "t♥", u: "u♥", v: "v♥", w: "w♥", x: "x♥",
+    y: "y♥", z: "z♥",
+
+    A: "A♥", B: "B♥", C: "C♥", D: "D♥", E: "E♥", F: "F♥", G: "G♥", H: "H♥",
+    I: "I♥", J: "J♥", K: "K♥", L: "L♥", M: "M♥", N: "N♥", O: "O♥", P: "P♥",
+    Q: "Q♥", R: "R♥", S: "S♥", T: "T♥", U: "U♥", V: "V♥", W: "W♥", X: "X♥",
+    Y: "Y♥", Z: "Z♥"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
 function updateOutputs(text) {
   // Cursive
   const cursiveEl = document.getElementById("CursiveOutput");
@@ -429,7 +714,112 @@ const oldEnglishEl = document.getElementById("OldEnglishOutput");
 if (oldEnglishEl) {
   oldEnglishEl.textContent = text ? toOldEnglish(text) : toOldEnglish("Old English");
 }
+// Mystic
+const mysticEl = document.getElementById("MysticOutput");
+if (mysticEl) {
+  mysticEl.textContent = text ? toMystic(text) : toMystic("Mystic");
+}
 
+// Crystal
+const crystalEl = document.getElementById("CrystalOutput");
+if (crystalEl) {
+  crystalEl.textContent = text ? toCrystal(text) : toCrystal("Crystal");
+}
+
+// Arcane
+const arcaneEl = document.getElementById("ArcaneOutput");
+if (arcaneEl) {
+  arcaneEl.textContent = text ? toArcane(text) : toArcane("Arcane");
+}
+
+// Shadow
+const shadowEl = document.getElementById("ShadowOutput");
+if (shadowEl) {
+  shadowEl.textContent = text ? toShadow(text) : toShadow("Shadow");
+}
+
+// Solar
+const solarEl = document.getElementById("SolarOutput");
+if (solarEl) {
+  solarEl.textContent = text ? toSolar(text) : toSolar("Solar");
+}
+
+// Ember
+const emberEl = document.getElementById("EmberOutput");
+if (emberEl) {
+  emberEl.textContent = text ? toEmber(text) : toEmber("Ember");
+}
+
+// Frost
+const frostEl = document.getElementById("FrostOutput");
+if (frostEl) {
+  frostEl.textContent = text ? toFrost(text) : toFrost("Frost");
+}
+
+// Storm
+const stormEl = document.getElementById("StormOutput");
+if (stormEl) {
+  stormEl.textContent = text ? toStorm(text) : toStorm("Storm");
+}
+
+// Lunar
+const lunarEl = document.getElementById("LunarOutput");
+if (lunarEl) {
+  lunarEl.textContent = text ? toLunar(text) : toLunar("Lunar");
+}
+
+// Cosmic
+const cosmicEl = document.getElementById("CosmicOutput");
+if (cosmicEl) {
+  cosmicEl.textContent = text ? toCosmic(text) : toCosmic("Cosmic");
+}
+
+// Rune
+const runeEl = document.getElementById("RuneOutput");
+if (runeEl) {
+  runeEl.textContent = text ? toRune(text) : toRune("Rune");
+}
+
+// Infernal
+const infernalEl = document.getElementById("InfernalOutput");
+if (infernalEl) {
+  infernalEl.textContent = text ? toInfernal(text) : toInfernal("Infernal");
+}
+
+// Aurora
+const auroraEl = document.getElementById("AuroraOutput");
+if (auroraEl) {
+  auroraEl.textContent = text ? toAurora(text) : toAurora("Aurora");
+}
+
+// Twilight
+const twilightEl = document.getElementById("TwilightOutput");
+if (twilightEl) {
+  twilightEl.textContent = text ? toTwilight(text) : toTwilight("Twilight");
+}
+
+// Ethereal
+const etherealEl = document.getElementById("EtherealOutput");
+if (etherealEl) {
+  etherealEl.textContent = text ? toEthereal(text) : toEthereal("Ethereal");
+}
+// Hearts Style
+const heartsEl = document.getElementById("HeartsOutput");
+if (heartsEl) {
+  heartsEl.textContent = text ? toHearts(text) : toHearts("Hearts");
+}
+
+// Zalgo
+const zalgoEl = document.getElementById("ZalgoOutput");
+if (zalgoEl) {
+  zalgoEl.textContent = text ? toZalgo(text) : toZalgo("Zalgo");
+}
+
+// Fancy Style 1
+const fancy1El = document.getElementById("Fancy1Output");
+if (fancy1El) {
+  fancy1El.textContent = text ? toFancy1(text) : toFancy1("Fancy 1");
+}
 
 }
 
@@ -750,4 +1140,3 @@ window.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('resize', adjustStickyInput);
     navMenu.addEventListener('click', adjustStickyInput);
     adjustStickyInput();
-
