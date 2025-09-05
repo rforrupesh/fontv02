@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +6,111 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Font Generator</title>
-   <link rel="stylesheet" href="../style.css">
+   <link rel="stylesheet" href="https://rforrupesh.github.io/fontv02/style.css">
  
 
 </head>
 <body>
+ <nav class="navbar">
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <!-- Hamburger SVG -->
+      <span class="icon-hamburger">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="6" x2="20" y2="6"/>
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="18" x2="20" y2="18"/>
+        </svg>
+      </span>
+      <!-- Close SVG -->
+      <span class="icon-close">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </span>
+    </button>
+    <a href="/" class="logo">
+      <img src="https://fontgen.in/img/logo_header.png" alt="Logo">
+    </a>
+    <div class="nav-menu" id="navMenu">
+      <ul>
+        <li>
+          <a href="https://fontgen.in/">Home</a>
+        </li>
+        <li class="dropdown">
+          <button type="button" class="dropdown-toggle">
+            Font Styles
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="black" stroke-width="2">
+              <polyline points="6 8 10 12 14 8"/>
+            </svg>
+          </button>
+          <div class="dropdown-content">
+            <a href="https://fontgen.in/tools/">All</a>
+            <a href="https://fontgen.in/tools/strikethrough.html">Strikethrough</a>
+            <a href="https://fontgen.in/tools/invisible.html">Invisible</a>
+            <a href="https://fontgen.in/tools/cursive.html">Cursive Text</a>
+            <a href="https://fontgen.in/tools/cool.html">Cool</a>
+            <a href="https://fontgen.in/tools/fancy.html">Fancy</a>
+            <a href="https://fontgen.in/tools/glitch.html">Glitch</a>
+            <a href="https://fontgen.in/tools/bold.html">Bold</a>
+            <a href="https://fontgen.in/tools/text-art.html">Text Art</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <button type="button" class="dropdown-toggle">
+            About
+            <!-- Caret Down SVG only -->
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="black" stroke-width="2">
+              <polyline points="6 8 10 12 14 8"/>
+            </svg>
+          </button>
+          <div class="dropdown-content">
+            <a href="https://fontgen.in/about-us.html">About Us</a>
+            <a href="https://fontgen.in/contact-us.html">Contact Us</a>
+             <a href="https://fontgen.in/privacy-policy.html">Privacy</a>
+            <a href="https://fontgen.in/faq.html">FAQ</a>
+          </div>
+        </li>
+     
+ 
+          <li class="dropdown">
+          <button type="button" class="dropdown-toggle">
+            Language
+            <!-- Caret Down SVG only -->
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="black" stroke-width="2">
+              <polyline points="6 8 10 12 14 8"/>
+            </svg>
+          </button>
+          <div class="dropdown-content">
+                           <a  href="https://fontgen.in/" data-lang="en">English</a>
+                            <a  href="https://fontgen.in/es.html" data-lang="es">Español</a>
+                            <a  href="https://fontgen.in/ar.html" data-lang="ar">العربية</a>
+                            <a  href="https://fontgen.in/fr.html" data-lang="fr">Français</a>
+                            <a  href="https://fontgen.in/de.html" data-lang="de">Deutsch</a>
+                            <a  href="https://fontgen.in/pt.html" data-lang="pt">Português</a>
+                            <a  href="https://fontgen.in/id.html" data-lang="id">Indonesian</a>
+                            <a  href="https://fontgen.in/hi.html" data-lang="hi">हिन्दी </a>
+                            <a  href="https://fontgen.in/it.html" data-lang="it">Italiano</a>
+                            <a  href="https://fontgen.in/ja.html" data-lang="ja">日本語</a>
+                            <a  href="https://fontgen.in/ru.html" data-lang="ru">Россия</a>
+                            <a  href="https://fontgen.in/th.html" data-lang="th">ประเทศไทย</a>
+                            <a  href="https://fontgen.in/tr.html" data-lang="tr">Türkiye</a>
+                            <a  href="https://fontgen.in/vi.html" data-lang="vi">Việt Nam</a>
+          </div>
+        </li>
+       
+      </ul>
 
-  <h1>Font Generator</h1>
+    </div>
+  </nav>
+
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  
+  
+  <div class="output-list">
+<h1>Font Generator</h1>
   <p>Type text and copy it in different styles.</p>
-
 <!-- ✅ Search + Tabs together -->
 <div class="search-section" id="searchSection">
   <div class="input-container">
@@ -26,8 +121,8 @@
   <div class="tab-wrapper">
     <span class="scroll-btn left-btn" id="scrollLeftBtn">&lt;</span>
     <nav class="tab-nav" id="tabNav">
-      <a href="https://rforrupesh.github.io/fontv02/" class="tab-link active">All Fonts</a>
-      <a href="https://rforrupesh.github.io/fontv02/tools/cool.html" class="tab-link">Cool</a>
+      <a href=".." class="tab-link active">All Fonts</a>
+      <a href="./tools/cool.html" class="tab-link">Cool</a>
       <a href="../tools/fancy.html" class="tab-link">Fancy</a>
       <a href="../tools/cursive.html" class="tab-link">Cursive</a>
       <a href="../tools/small.html" class="tab-link">Small</a>
@@ -43,126 +138,190 @@
   </div>
 </div>
 
- 
-
   <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+<!-- Mystic -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="MysticOutput" data-default="Mystic">Mystic</span>
+    <span class="style-name">Mystic</span>
   </div>
-    <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('MysticOutput')"></button>
+</div>
+<!-- Hearts Style Output Box -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="HeartsOutput" data-default="Hearts">Hearts</span>
+    <span class="style-name">Hearts</span>
   </div>
-    <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('HeartsOutput')"></button>
+</div>
+
+<!-- Fancy Style 1 Output Box -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="Fancy1Output" data-default="Fancy 1">Fancy 1</span>
+    <span class="style-name">Fancy Style 1</span>
   </div>
-    <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('Fancy1Output')"></button>
+</div>
+
+<!-- Zalgo Output Box -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="ZalgoOutput" data-default="Zalgo">Zalgo</span>
+    <span class="style-name">Zalgo</span>
   </div>
-    <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('ZalgoOutput')"></button>
+</div>
+
+
+<!-- Crystal -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="CrystalOutput" data-default="Crystal">Crystal</span>
+    <span class="style-name">Crystal</span>
   </div>
-    <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CrystalOutput')"></button>
+</div>
+
+<!-- Arcane -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="ArcaneOutput" data-default="Arcane">Arcane</span>
+    <span class="style-name">Arcane</span>
   </div>
-    <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('ArcaneOutput')"></button>
+</div>
+
+<!-- Shadow -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="ShadowOutput" data-default="Shadow">Shadow</span>
+    <span class="style-name">Shadow</span>
   </div>
-    <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('ShadowOutput')"></button>
+</div>
+
+<!-- Solar -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="SolarOutput" data-default="Solar">Solar</span>
+    <span class="style-name">Solar</span>
   </div>
-    <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('SolarOutput')"></button>
+</div>
+
+<!-- Ember -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="EmberOutput" data-default="Ember">Ember</span>
+    <span class="style-name">Ember</span>
   </div>
-    <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('EmberOutput')"></button>
+</div>
+
+<!-- Frost -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="FrostOutput" data-default="Frost">Frost</span>
+    <span class="style-name">Frost</span>
   </div>
-    <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
-  </div>  <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
-  </div>  <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
-  </div>  <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
-  </div>  <!-- Curly Wrap -->
-  <div class="output-box">
-    <div class="text-content">
-      <span class="output-text" id="CurlyOutput" data-default="⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱">⊰C⊱⊰u⊱⊰r⊱⊰l⊱⊰y⊱ ⊰W⊱⊰r⊱⊰a⊱⊰p⊱</span>
-      <span class="style-name">Curly Wrap</span>
-    </div>
-    <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CurlyOutput')"></button>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('FrostOutput')"></button>
+</div>
+
+<!-- Storm -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="StormOutput" data-default="Storm">Storm</span>
+    <span class="style-name">Storm</span>
   </div>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('StormOutput')"></button>
+</div>
+
+<!-- Lunar -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="LunarOutput" data-default="Lunar">Lunar</span>
+    <span class="style-name">Lunar</span>
+  </div>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('LunarOutput')"></button>
+</div>
+
+<!-- Cosmic -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="CosmicOutput" data-default="Cosmic">Cosmic</span>
+    <span class="style-name">Cosmic</span>
+  </div>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('CosmicOutput')"></button>
+</div>
+
+<!-- Rune -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="RuneOutput" data-default="Rune">Rune</span>
+    <span class="style-name">Rune</span>
+  </div>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('RuneOutput')"></button>
+</div>
+
+<!-- Infernal -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="InfernalOutput" data-default="Infernal">Infernal</span>
+    <span class="style-name">Infernal</span>
+  </div>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('InfernalOutput')"></button>
+</div>
+
+<!-- Aurora -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="AuroraOutput" data-default="Aurora">Aurora</span>
+    <span class="style-name">Aurora</span>
+  </div>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('AuroraOutput')"></button>
+</div>
+
+<!-- Twilight -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="TwilightOutput" data-default="Twilight">Twilight</span>
+    <span class="style-name">Twilight</span>
+  </div>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('TwilightOutput')"></button>
+</div>
+
+<!-- Ethereal -->
+<div class="output-box">
+  <div class="text-content">
+    <span class="output-text" id="EtherealOutput" data-default="Ethereal">Ethereal</span>
+    <span class="style-name">Ethereal</span>
+  </div>
+  <button class="copy-btn" aria-label="Copy text" onclick="copyToClipboard('EtherealOutput')"></button>
+</div>
+
+
 
   <div id="copyNotification"></div>
+  </div>
+  <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      &copy; 2025 Font Generator . All rights reserved.
+        <button id="backToTopBtn" onclick="scrollToTop()">⬆</button>
+
+    </div>
+    <div class="footer-right">
+      <a href="https://fontgen.in/privacy-policy.html">Privacy Policy</a> |
+      <a href="https://fontgen.in/about-us.html">About Us</a> |
+      <a href="https://fontgen.in/contact-us.html">Contact</a> |
+      <a href="https://fontgen.in/changelog.html">Latest Updates</a> |
+      <a href="https://fontgen.in/feedback.html">Feedback</a>
+    </div>
+  </div>
+</footer>
+
 
 <script src="https://rforrupesh.github.io/fontv02/script.js"></script>
 </body>
