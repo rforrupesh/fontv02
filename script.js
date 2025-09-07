@@ -102,7 +102,7 @@ function toSmallCaps(text) {
 }
 
 // Superscript
-function toSuperscript(text) {
+function toSuperscripts(text) {
   const map = {
     a:"ᵃ", b:"ᵇ", c:"ᶜ", d:"ᵈ", e:"ᵉ", f:"ᶠ", g:"ᵍ", h:"ʰ",
     i:"ⁱ", j:"ʲ", k:"ᵏ", l:"ˡ", m:"ᵐ", n:"ⁿ", o:"ᵒ", p:"ᵖ",
@@ -820,9 +820,9 @@ if (smallCapsEl) {
   smallCapsEl.textContent = text ? toSmallCaps(text) : "Sᴍᴀʟʟ Cᴀᴘs";
 }
 
-const superscriptEl = document.getElementById("SuperscriptOutput");
-if (superscriptEl) {
-  superscriptEl.textContent = text ? toSuperscript(text) : toSuperscript("Superscript");
+const superscriptsEl = document.getElementById("SuperscriptsOutput");
+if (superscriptsEl) {
+  superscriptsEl.textContent = text ? toSuperscripts(text) : "Superscript";
 }
 
 // Subscript
