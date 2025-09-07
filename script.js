@@ -100,6 +100,38 @@ function toSmallCaps(text) {
   };
   return text.split("").map(ch => map[ch] || ch).join("");
 }
+
+// Superscript
+function toSuperscript(text) {
+  const map = {
+    a:"ᵃ", b:"ᵇ", c:"ᶜ", d:"ᵈ", e:"ᵉ", f:"ᶠ", g:"ᵍ", h:"ʰ",
+    i:"ⁱ", j:"ʲ", k:"ᵏ", l:"ˡ", m:"ᵐ", n:"ⁿ", o:"ᵒ", p:"ᵖ",
+    q:"ᑫ", r:"ʳ", s:"ˢ", t:"ᵗ", u:"ᵘ", v:"ᵛ", w:"ʷ", x:"ˣ",
+    y:"ʸ", z:"ᶻ",
+    A:"ᴬ", B:"ᴮ", C:"ᶜ", D:"ᴰ", E:"ᴱ", F:"ᶠ", G:"ᴳ", H:"ᴴ",
+    I:"ᴵ", J:"ᴶ", K:"ᴷ", L:"ᴸ", M:"ᴹ", N:"ᴺ", O:"ᴼ", P:"ᴾ",
+    Q:"Q", R:"ᴿ", S:"ˢ", T:"ᵀ", U:"ᵁ", V:"ⱽ", W:"ᵂ", X:"ˣ",
+    Y:"ʸ", Z:"ᶻ"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+// Subscript
+function toSubscript(text) {
+  const map = {
+    a:"ₐ", b:"ᵦ", c:"c", d:"d", e:"ₑ", f:"f", g:"g", h:"ₕ",
+    i:"ᵢ", j:"ⱼ", k:"ₖ", l:"ₗ", m:"ₘ", n:"ₙ", o:"ₒ", p:"ₚ",
+    q:"q", r:"ᵣ", s:"ₛ", t:"ₜ", u:"ᵤ", v:"ᵥ", w:"w", x:"ₓ",
+    y:"ᵧ", z:"z",
+    A:"ₐ", B:"ᵦ", C:"C", D:"D", E:"ₑ", F:"F", G:"G", H:"ₕ",
+    I:"ᵢ", J:"ⱼ", K:"ₖ", L:"ₗ", M:"ₘ", N:"ₙ", O:"ₒ", P:"ₚ",
+    Q:"Q", R:"ᵣ", S:"ₛ", T:"ₜ", U:"ᵤ", V:"ᵥ", W:"W", X:"ₓ",
+    Y:"ᵧ", Z:"Z"
+  };
+  return text.split("").map(ch => map[ch] || ch).join("");
+}
+
+
 function toBubble(text) {
   const map = {
     a:"ⓐ", b:"ⓑ", c:"ⓒ", d:"ⓓ", e:"ⓔ", f:"ⓕ", g:"ⓖ", h:"ⓗ",
@@ -787,6 +819,18 @@ const smallCapsEl = document.getElementById("SmallCapsOutput");
 if (smallCapsEl) {
   smallCapsEl.textContent = text ? toSmallCaps(text) : "Sᴍᴀʟʟ Cᴀᴘs";
 }
+
+const superscriptEl = document.getElementById("SuperscriptOutput");
+if (superscriptEl) {
+  superscriptEl.textContent = text ? toSuperscript(text) : toSuperscript("Superscript");
+}
+
+// Subscript
+const subscriptEl = document.getElementById("SubscriptOutput");
+if (subscriptEl) {
+  subscriptEl.textContent = text ? toSubscript(text) : toSubscript("Subscript");
+}
+
 
 const bubbleEl = document.getElementById("BubbleOutput");
 if (bubbleEl) {
