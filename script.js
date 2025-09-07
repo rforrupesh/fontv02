@@ -828,7 +828,7 @@ if (superscriptsEl) {
 // Subscript
 const subscriptEl = document.getElementById("SubscriptOutput");
 if (subscriptEl) {
-  subscriptEl.textContent = text ? toSubscript(text) : toSubscript("Subscript");
+  subscriptEl.textContent = text ? toSubscript(text) : "Subscript";
 }
 
 
