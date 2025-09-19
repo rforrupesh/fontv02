@@ -569,15 +569,15 @@ body {
 
 .tab-link {
   flex-shrink: 0;
-  padding: 6px 14px;
+  padding: 6px 12px;
   margin-right: 4px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
-  color: #555;
+  color: #007bff;
   text-decoration: none;
   border-radius: 20px;
   transition: background 0.2s, color 0.2s;
-  border:1px solid #0077ff21;
+  border:1px solid #007bff30;
 }
 
 .tab-link:hover {
