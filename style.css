@@ -31,7 +31,7 @@ body {
   right: 30px;
   width: 50px;
   height: 50px;
-  background-color: #333;
+  background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -45,7 +45,7 @@ body {
 }
 
 #backToTopBtn:hover {
-  background-color: #555;
+  background-color: #0077ffed;
   transform: scale(1.1);
 }
 
@@ -229,7 +229,7 @@ body {
 .dropdown-content {
   display: none;
   position: static;
-  background: #949393;
+  background: white;
   margin-left: 0;
   margin-right: 0;
   border-left: 3px solid #007bff;
@@ -242,8 +242,8 @@ body {
 .dropdown-content a {
   padding-left: 36px;
   font-size: 1rem;
-  background: #333;
-  color: #fff;
+  background: ;
+  color: black;
 }
 
 /* Desktop styles */
@@ -299,7 +299,7 @@ body {
     position: absolute;
     left: 0;
     top: 100%;
-    background: #949393;
+    background: white;
     min-width: 180px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     border-left: none;
@@ -314,7 +314,7 @@ body {
   .dropdown-content a {
     padding-left: 24px;
     background: #333;
-    color: #fff;
+    color: white;
   }
 
   .sticky-input-wrapper {
@@ -419,6 +419,7 @@ body {
             color: #1c1818;
             font-weight: 900;
             text-align: center;
+        color:#007bff;
         }
         .output-list p{
            font-size: 18px;
@@ -534,7 +535,7 @@ body {
 .scroll-btn:hover {
   background: #f1f3f4;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    border: 2px solid black;
+  
 
 }
 
@@ -568,7 +569,7 @@ body {
 
 .tab-link {
   flex-shrink: 0;
-  padding: 8px 14px;
+  padding: 6px 14px;
   margin-right: 4px;
   font-size: 14px;
   font-weight: 500;
@@ -576,6 +577,7 @@ body {
   text-decoration: none;
   border-radius: 20px;
   transition: background 0.2s, color 0.2s;
+  border:1px solid #0077ff21;
 }
 
 .tab-link:hover {
@@ -590,11 +592,12 @@ body {
   justify-content: space-between;
   background: #fff;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 19px;
   margin: px 0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+ 
 }
 
 .output-box:hover {
@@ -620,7 +623,6 @@ body {
   font-size: 14px;
   color: #666;
 }
-
 /* ---------- Copy Button ---------- */
 .copy-btn {
   cursor: pointer;
@@ -633,6 +635,8 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  background: #007bff;
+  color:white;
 }
 
 .copy-btn svg {
@@ -640,10 +644,11 @@ body {
   height: 20px;
   stroke: #343a40;
   transition: stroke 0.25s ease;
+  stroke: #fff;
 }
 
 .copy-btn:hover {
-  background: #007bff;
+  background:#026cde;
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
 }
