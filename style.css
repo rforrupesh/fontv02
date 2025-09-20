@@ -45,7 +45,7 @@ body {
 }
 
 #backToTopBtn:hover {
-  background-color: #0077ffed;
+  background-color: #0077fffb;
   transform: scale(1.1);
 }
 
@@ -121,7 +121,7 @@ body {
 
 .menu-toggle svg {
   display: block;
-  color: #000;
+  color: #ffffff;
 }
 
 .menu-toggle .icon-close {
@@ -244,6 +244,7 @@ body {
   font-size: 1rem;
   background: ;
   color: black;
+ border-bottom: 1px solid #4f4c4c15;
 }
 
 /* Desktop styles */
@@ -251,6 +252,8 @@ body {
   .navbar {
     padding: 0 2rem;
     justify-content: flex-start;
+    background:#007bff; ;
+    color: #ffffff;
   }
 
   .navbar .menu-toggle {
@@ -273,8 +276,8 @@ body {
     box-shadow: none;
     display: flex;
     align-items: center;
-    background: #fff;
-    color: #000;
+    background:#007bff; ;
+    color: #ffffff;
   }
 
   .nav-menu ul {
@@ -301,10 +304,9 @@ body {
     top: 100%;
     background: white;
     min-width: 180px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     border-left: none;
     z-index: 1003;
-  }
+box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;  }
 
   /* ✅ Show dropdown on hover for desktop */
   .dropdown:hover > .dropdown-content {
@@ -313,8 +315,10 @@ body {
 
   .dropdown-content a {
     padding-left: 24px;
-    background: #333;
-    color: white;
+    height: 38px;
+    color: #007bff;
+    background-color: white;
+    border-bottom: 1px solid #4f4c4c15;
   }
 
   .sticky-input-wrapper {
@@ -352,7 +356,7 @@ body {
 
 /* Footer */
 .site-footer {
-  background-color: #222;
+  background-color: #007bff;
   color: #fff;
   padding: 15px 20px;
   font-size: 14px;
