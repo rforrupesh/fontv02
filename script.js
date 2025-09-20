@@ -1502,19 +1502,33 @@ window.addEventListener("DOMContentLoaded", () => {
     adjustStickyInput();
 
 // Highlight active tab based on current URL
-document.addEventListener("DOMContentLoaded", () => {
-  const currentUrl = window.location.pathname.replace(/\/$/, ""); // remove trailing slash
-  const links = document.querySelectorAll(".tab-nav .tab-link");
+// script.js
 
-  links.forEach(link => {
-    const linkUrl = new URL(link.href);
-    const linkPath = linkUrl.pathname.replace(/\/$/, "");
+// Add this function to your existing script.js file
+function setActiveTab() {
+  const tabNav = document.getElementById('tabNav');
+  const tabLinks = tabNav.querySelectorAll('.tab-link');
+  const currentPath = window.location.pathname;
 
-    // Match exact file name or directory
-    if (currentUrl.endsWith(linkPath) || currentUrl === linkPath) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
+  tabLinks.forEach(link => {
+    // Remove the 'active' class from all links first
+    link.classList.remove('active');
+
+    // Check if the link's href matches the current URL path
+    if (link.href.endsWith(currentPath)) {
+      link.classList.add('active');
+    }
+    
+    // Special case for the home/all fonts page (root path)
+    if (currentPath === '/' || currentPath === '/index.html' || currentPath === '/tools/') {
+      // Find the 'All Fonts' link and make it active
+      const allFontsLink = tabNav.querySelector('a[href="./"]');
+      if (allFontsLink) {
+        allFontsLink.classList.add('active');
+      }
     }
   });
-});
+}
+
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', setActiveTab);
