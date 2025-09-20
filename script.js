@@ -1500,3 +1500,20 @@ window.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('resize', adjustStickyInput);
     navMenu.addEventListener('click', adjustStickyInput);
     adjustStickyInput();
+
+// Highlight active tab based on current URL
+document.addEventListener("DOMContentLoaded", function () {
+  const currentPage = window.location.pathname.split("/").pop(); // e.g. "symbols.html"
+  const tabLinks = document.querySelectorAll(".tab-link");
+
+  tabLinks.forEach(link => {
+    const linkPage = link.getAttribute("href").split("/").pop(); // e.g. "symbols.html" or "."
+    if (
+      (currentPage === "" && linkPage === ".") || // For homepage
+      currentPage === linkPage
+    ) {
+      link.classList.add("active");
+    }
+  });
+});
+
