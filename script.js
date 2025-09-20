@@ -1502,18 +1502,19 @@ window.addEventListener("DOMContentLoaded", () => {
     adjustStickyInput();
 
 // Highlight active tab based on current URL
-document.addEventListener("DOMContentLoaded", function () {
-  const currentPage = window.location.pathname.split("/").pop(); // e.g. "symbols.html"
-  const tabLinks = document.querySelectorAll(".tab-link");
+document.addEventListener("DOMContentLoaded", () => {
+  const currentUrl = window.location.pathname.replace(/\/$/, ""); // remove trailing slash
+  const links = document.querySelectorAll(".tab-nav .tab-link");
 
-  tabLinks.forEach(link => {
-    const linkPage = link.getAttribute("href").split("/").pop(); // e.g. "symbols.html" or "."
-    if (
-      (currentPage === "" && linkPage === ".") || // For homepage
-      currentPage === linkPage
-    ) {
+  links.forEach(link => {
+    const linkUrl = new URL(link.href);
+    const linkPath = linkUrl.pathname.replace(/\/$/, "");
+
+    // Match exact file name or directory
+    if (currentUrl.endsWith(linkPath) || currentUrl === linkPath) {
       link.classList.add("active");
+    } else {
+      link.classList.remove("active");
     }
   });
 });
-
