@@ -1502,33 +1502,26 @@ window.addEventListener("DOMContentLoaded", () => {
     adjustStickyInput();
 
 // Highlight active tab based on current URL
-// script.js
-
-// Add this function to your existing script.js file
 function setActiveTab() {
   const tabNav = document.getElementById('tabNav');
   const tabLinks = tabNav.querySelectorAll('.tab-link');
-  const currentPath = window.location.pathname;
-
+  // Get the current path, ensuring it's in a consistent format
+  const currentPath = window.location.pathname.toLowerCase().replace(/index\.html$/, '').replace(/\/+$/, '');
+  
   tabLinks.forEach(link => {
-    // Remove the 'active' class from all links first
     link.classList.remove('active');
-
-    // Check if the link's href matches the current URL path
-    if (link.href.endsWith(currentPath)) {
-      link.classList.add('active');
-    }
     
-    // Special case for the home/all fonts page (root path)
-    if (currentPath === '/' || currentPath === '/index.html' || currentPath === '/tools/') {
-      // Find the 'All Fonts' link and make it active
-      const allFontsLink = tabNav.querySelector('a[href="./"]');
-      if (allFontsLink) {
-        allFontsLink.classList.add('active');
-      }
+    // Get the link's href and format it for consistent comparison
+    const linkPath = link.getAttribute('href').toLowerCase().replace(/^\./, '').replace(/index\.html$/, '').replace(/\/+$/, '');
+    
+    // Check if the current path matches the link path.
+    // Use an exact match for home page, otherwise check if the path includes the link.
+    if (currentPath === '/' && linkPath === '/') {
+        link.classList.add('active');
+    } else if (linkPath !== '/' && currentPath.includes(linkPath)) {
+        link.classList.add('active');
     }
   });
 }
 
-// Call the function when the page loads
 document.addEventListener('DOMContentLoaded', setActiveTab);
