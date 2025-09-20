@@ -588,6 +588,12 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1p
   background: #007bff;
   color: #ffffff;
 }
+.tab-link.active {
+  background-color: #007bff;   /* Blue background */
+  color: #fff !important;      /* White text */
+  border-radius: 4px;          /* Optional rounded corners */
+  padding: 6px 12px;           /* Optional spacing */
+}
 
 /* ---------- Output Boxes ---------- */
 .output-box {
