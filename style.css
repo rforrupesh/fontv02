@@ -106,6 +106,7 @@ body {
   padding: 0 1rem;
   position: relative;
   z-index: 1002;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .navbar .menu-toggle {
@@ -306,7 +307,8 @@ body {
     min-width: 180px;
     border-left: none;
     z-index: 1003;
-box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;  }
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+ }
 
   /* ✅ Show dropdown on hover for desktop */
   .dropdown:hover > .dropdown-content {
@@ -445,14 +447,14 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1p
   border-radius: 16px;
   padding: 12px 16px;
   margin-bottom: 20px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
 
 .search-section.shrink {
   padding: 6px 12px;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .input-container {
@@ -605,14 +607,14 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1p
   border-radius: 10px;
   padding: 19px;
   margin: px 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
  
 }
 
 .output-box:hover {
   background-color: #f7f9f9;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .text-content {
@@ -677,7 +679,7 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1p
   color: #fff;
   padding: 10px 16px;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   display: none;
   animation: fadeInOut 2.5s ease forwards;
   font-size: 14px;
