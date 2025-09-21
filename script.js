@@ -1501,39 +1501,3 @@ window.addEventListener("DOMContentLoaded", () => {
     navMenu.addEventListener('click', adjustStickyInput);
     adjustStickyInput();
 
-// Highlight active tab based on current URL
-/**
- * Sets the active class on the navigation tab that corresponds to the current page.
- * This script works universally, regardless of the domain or subdirectory structure.
- */
-function setActiveTab() {
-  const tabNav = document.getElementById('tabNav');
-  const tabLinks = tabNav.querySelectorAll('.tab-link');
-
-  // Get the current page's filename from the URL
-  const currentPathname = window.location.pathname;
-  const currentFilename = currentPathname.split('/').pop().toLowerCase() || 'index.html'; // Default to 'index.html' for the root page
-
-  tabLinks.forEach(link => {
-    // First, remove any existing 'active' class to prevent multiple selections
-    link.classList.remove('active');
-
-    // Get the link's href and extract its filename
-    const linkHref = link.getAttribute('href');
-    const linkFilename = linkHref.split('/').pop().toLowerCase();
-    
-    // Check if the current filename matches the link's filename
-    if (linkFilename === currentFilename) {
-      link.classList.add('active');
-    }
-    
-    // Special case: The root path ('/') and the 'All Fonts' link ('./' or '.')
-    // This is needed because the filename would be empty for the root
-    if ((currentFilename === 'index.html' || currentFilename === '') && (linkHref === '.' || linkHref === './index.html' || linkHref === '')) {
-      link.classList.add('active');
-    }
-  });
-}
-
-// Ensure the script runs after the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', setActiveTab);
